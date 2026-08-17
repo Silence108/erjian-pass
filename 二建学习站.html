@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>二建讲义 · 建筑工程 · 2027</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#b5502f">
+<link rel="apple-touch-icon" href="icon.svg">
+<style>
+:root{
+  --bg:#f7f2e9;          /* 米白纸 */
+  --card:#fffdf8;
+  --ink:#33302b;         /* 墨字 */
+  --ink-2:#6f675c;       /* 次级 */
+  --line:#e2d9c8;        /* 纸纹线 */
+  --brick:#b5502f;       /* 砖陶红:重点/强调 */
+  --brick-soft:#f6e3da;
+  --gold:#8a6d1f;        /* 口诀金 */
+  --gold-bg:#faf0d4;
+  --green:#3e7d5c;       /* 完成绿 */
+  --green-bg:#e4efe7;
+  --blue:#38618c;        /* 链接/公式蓝 */
+  --blue-bg:#e7edf5;
+  --serif:Georgia,"Times New Roman","SimSun","宋体",serif;
+  --sans:"Microsoft YaHei","微软雅黑",-apple-system,sans-serif;
+  --mono:Consolas,"Courier New",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--ink);
+  font-size:16px;line-height:1.85;
+  background-image:radial-gradient(rgba(180,150,100,.06) 1px,transparent 1px);
+  background-size:22px 22px;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom));
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px}
+/* ── 页头 ── */
+header{
+  background:linear-gradient(160deg,#fffdf8,#f3ecdd);
+  border-bottom:1px solid var(--line);padding:22px 0 16px;
+}
+.brand{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:.1em}
+.brand b{color:var(--brick)}
+.brand-sub{font-size:12.5px;color:var(--ink-2);margin-top:2px}
+.head-meta{display:flex;gap:14px;align-items:center;margin-top:12px;flex-wrap:wrap;font-size:13px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:3px 14px;color:var(--ink-2)}
+.chip b{color:var(--brick);font-family:var(--mono)}
+/* ── 底部导航（手机）/顶部（桌面） ── */
+nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:rgba(255,253,248,.96);backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-around;
+  padding-bottom:env(safe-area-inset-bottom);
+  box-shadow:0 -4px 18px rgba(90,70,40,.08);
+}
+nav button{
+  flex:1;max-width:120px;background:none;border:none;cursor:pointer;
+  padding:9px 2px 7px;color:var(--ink-2);font-family:var(--sans);
+  display:flex;flex-direction:column;align-items:center;gap:1px;font-size:11.5px;
+}
+nav button .nv{font-family:var(--serif);font-size:17px;font-weight:700;line-height:1.25}
+nav button.on{color:var(--brick)}
+nav button.on .nv{border-bottom:3px solid var(--brick)}
+@media(min-width:820px){
+  body{padding-bottom:30px}
+  nav{position:sticky;top:0;bottom:auto;border-top:none;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(90,70,40,.06)}
+  nav button{flex-direction:row;gap:8px;font-size:13px;padding:13px}
+}
+/* ── 版块 ── */
+main section{display:none;padding:22px 0 40px}
+main section.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+h2.page-title{font-family:var(--serif);font-size:23px;letter-spacing:.06em;margin:6px 0 4px}
+.page-lede{color:var(--ink-2);font-size:13.5px;margin-bottom:18px}
+/* ── 卡片 ── */
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(90,70,40,.05)}
+.card h3{font-family:var(--serif);font-size:17px;margin-bottom:10px}
+/* ── 表格（手机可横滑） ── */
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:340px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f3ecdd;font-weight:700;white-space:nowrap}
+td{background:var(--card)}
+.c{text-align:center}
+.mono{font-family:var(--mono)}
+mark{background:linear-gradient(transparent 62%,#f7d9a8 62%);color:inherit;font-weight:700;padding:0 1px}
+.red{color:var(--brick);font-weight:700}
+.dim{color:var(--ink-2)}
+a{color:var(--blue)}
+/* ── 进度条 ── */
+.bar{height:10px;background:#eee5d4;border-radius:6px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,#d3773f,var(--brick));transition:width .7s ease}
+.bar-row{display:grid;grid-template-columns:78px 1fr 52px;gap:10px;align-items:center;margin:8px 0;font-size:13.5px}
+.bar-row .pct{font-family:var(--mono);text-align:right;color:var(--brick);font-weight:700}
+/* ── 倒计时块 ── */
+.dash-hero{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.hero-cell{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center}
+.hero-cell b{display:block;font-family:var(--serif);font-size:40px;color:var(--brick);line-height:1.2}
+.hero-cell span{font-size:12px;color:var(--ink-2)}
+/* ── 打卡条目 ── */
+.ck{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:var(--card);cursor:pointer;user-select:none}
+.ck input{margin-top:5px;accent-color:var(--brick);width:16px;height:16px;flex:none;cursor:pointer}
+.ck.done{background:var(--green-bg);border-color:#cfe0d3;opacity:.8}
+.ck.done .ck-t{text-decoration:line-through;color:var(--ink-2)}
+.ck small{display:block;color:var(--ink-2);font-size:12.5px;line-height:1.6}
+/* ── 时间轴 ── */
+.tl{list-style:none}
+.tl li{position:relative;padding:0 0 14px 22px;border-left:2px solid var(--line);margin-left:7px;font-size:14px}
+.tl li:last-child{border-left-color:transparent}
+.tl li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--card);border:2px solid var(--brick)}
+.tl li.done::before{background:var(--green);border-color:var(--green)}
+.tl b{color:var(--brick);font-family:var(--mono);font-size:13px}
+/* ── 讲义：章节手风琴 ── */
+details.lec{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden}
+details.lec>summary{
+  list-style:none;cursor:pointer;padding:14px 16px;display:flex;gap:12px;align-items:center;
+  -webkit-tap-highlight-color:transparent;
+}
+details.lec>summary::-webkit-details-marker{display:none}
+.lec-no{
+  font-family:var(--serif);font-size:22px;font-weight:700;color:var(--brick);
+  width:34px;flex:none;text-align:center;line-height:1;
+}
+.lec-t{flex:1;min-width:0}
+.lec-t b{font-size:15.5px;display:block;line-height:1.5}
+.lec-t small{color:var(--ink-2);font-size:12px;display:block}
+.lec-stars{color:var(--brick);font-size:12px;letter-spacing:1px;flex:none}
+.lec-arrow{flex:none;color:var(--ink-2);transition:transform .25s;font-size:12px}
+details[open]>summary .lec-arrow{transform:rotate(90deg)}
+details[open]>summary{border-bottom:1px dashed var(--line)}
+.lec-body{padding:6px 16px 18px}
+/* 讲义排版组件 */
+.lec-body h4{
+  font-family:var(--serif);font-size:16px;margin:20px 0 8px;padding-left:10px;
+  border-left:4px solid var(--brick);line-height:1.5;
+}
+.lec-body h5{font-size:14.5px;margin:14px 0 6px;color:var(--brick)}
+.lec-body p{margin:8px 0;font-size:14.8px}
+.lec-body ul,.lec-body ol{padding-left:22px;font-size:14.8px;margin:6px 0}
+.lec-body li{margin:4px 0}
+.kp{
+  border:1px solid var(--line);border-left:4px solid var(--brick);border-radius:0 8px 8px 0;
+  background:#fbf7ef;padding:10px 14px;margin:10px 0;font-size:14.5px;
+}
+.kp::before{content:"考点";display:inline-block;background:var(--brick);color:#fff;font-size:11px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+.memo{
+  background:var(--gold-bg);border:1px dashed #d9bd6e;border-radius:8px;
+  padding:10px 14px;margin:10px 0;font-size:14.5px;color:var(--gold);
+}
+.memo::before{content:"口诀";display:inline-block;background:var(--gold);color:#fff;font-size:11px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+.formula{
+  background:var(--blue-bg);border-radius:8px;padding:12px 14px;margin:10px 0;
+  font-family:var(--mono);font-size:14px;color:var(--blue);overflow-x:auto;white-space:nowrap;
+}
+.trap{
+  background:#fdeceb;border:1px solid #eec5c0;border-radius:8px;
+  padding:10px 14px;margin:10px 0;font-size:14px;
+}
+.trap::before{content:"易错";display:inline-block;background:#c0392b;color:#fff;font-size:11px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+.example{border:1px solid var(--line);border-radius:8px;margin:12px 0;overflow:hidden}
+.example>.ex-q{padding:11px 14px;font-size:14.5px;background:#f3efe6}
+.example>.ex-q::before{content:"例";display:inline-block;background:var(--green);color:#fff;font-size:11px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px}
+.example>.ex-a{padding:11px 14px;font-size:14px;border-top:1px dashed var(--line);color:var(--ink-2)}
+.numcard{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:10px 0}
+.numcard div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;text-align:center}
+.numcard b{display:block;font-family:var(--serif);font-size:20px;color:var(--brick)}
+/* 章打卡行 */
+.lec-done{display:flex;align-items:center;gap:8px;margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--ink-2)}
+.lec-done input{accent-color:var(--green);width:17px;height:17px}
+/* 术语卡 */
+.term-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:560px){.term-grid{grid-template-columns:1fr}}
+.term{border:1px solid var(--line);border-radius:8px;background:var(--card);padding:10px 13px;font-size:13.5px;line-height:1.7}
+.term b{color:var(--brick);display:block;font-size:14.5px}
+/* 自测 */
+.quiz{border:1px dashed #d9bd6e;background:var(--gold-bg);border-radius:8px;padding:11px 14px;margin:9px 0}
+.quiz .q{font-weight:700;cursor:pointer;font-size:14.5px}
+.quiz .a{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed #d9bd6e;font-size:13.8px;color:var(--ink-2)}
+.quiz.open .a{display:block}
+.note{border-left:4px solid var(--gold);background:var(--gold-bg);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13.8px;margin:12px 0}
+.note.warn{border-left-color:#c0392b;background:#fdeceb}
+footer{padding:26px 16px 20px;text-align:center;font-size:12px;color:var(--ink-2)}
+footer button{background:none;border:1px solid var(--line);border-radius:6px;color:var(--ink-2);padding:5px 16px;font-size:12px;cursor:pointer;margin-top:6px}
+.sync-btn{background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:8px 14px;font-size:13px;cursor:pointer;transition:all .2s}
+.sync-btn:hover{border-color:var(--brick);color:var(--brick)}
+#sync-input{flex:1;min-width:170px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-family:var(--mono);font-size:13px}
+.svgwrap{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;margin:12px 0}
+.svgwrap svg{width:100%;height:auto;display:block}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-top:6px}
+.legend i{display:inline-block;width:22px;height:0;border-top:3px solid var(--ink);vertical-align:middle;margin-right:5px}
+.legend .l-key{border-top-color:var(--brick)}
+.legend .l-dash{border-top-style:dashed;border-top-width:2px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">二建<b>精讲讲义</b></div>
+    <div class="brand-sub">建筑工程 · 山西 · 目标 2027-05 · 讲义按 2024 版大纲整理，数字细节以教材为准</div>
+    <div class="head-meta">
+      <span class="chip">距考试 <b id="cd">—</b> 天</span>
+      <span class="chip" id="phase-chip">—</span>
+    </div>
+  </div>
+</header>
+
+<nav id="nav">
+  <button data-t="home" class="on"><span class="nv">首</span>首页</button>
+  <button data-t="mgmt"><span class="nv">管</span>施工管理</button>
+  <button data-t="law"><span class="nv">法</span>法规</button>
+  <button data-t="prac"><span class="nv">实</span>建筑实务</button>
+  <button data-t="base"><span class="nv">盲</span>扫盲</button>
+</nav>
+
+<main class="wrap">
+
+<!-- ════════════ 首页 ════════════ -->
+<section id="home" class="on">
+  <h2 class="page-title">备考总览</h2>
+  <p class="page-lede">倒计时按 2027-05-29 估算，确切日期以山西官方通知为准。所有打卡自动存在本机浏览器。</p>
+
+  <div class="dash-hero">
+    <div class="hero-cell"><b id="cd2">—</b><span>距考试 · 天</span></div>
+    <div class="hero-cell"><b id="phase-name" style="font-size:19px;padding-top:10px">—</b><span id="phase-task">—</span></div>
+  </div>
+
+  <div class="card">
+    <h3>多端同步</h3>
+    <p class="dim" style="font-size:13px;margin-bottom:8px">手机、电脑输入<b>同一个同步码</b>，打卡进度自动云端同步（打开自动拉取、打卡后自动推送）。同步码就是你的进度钥匙，自己抄好别丢；仅在部署到线上后生效。</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <input id="sync-input" placeholder="输入或生成同步码（至少 8 位）">
+      <button class="sync-btn" id="btn-gen">生成新码</button>
+      <button class="sync-btn" id="btn-use">启用</button>
+      <button class="sync-btn" id="btn-sync">立即同步</button>
+      <button class="sync-btn" id="btn-off">停用</button>
+    </div>
+    <div class="dim" style="font-size:12.5px;margin-top:8px" id="sync-status">未启用</div>
+  </div>
+
+  <div class="card">
+    <h3>学习进度</h3>
+    <div class="bar-row"><span>施工管理</span><div class="bar"><i id="bar-m"></i></div><span class="pct" id="pct-m">0%</span></div>
+    <div class="bar-row"><span>法规</span><div class="bar"><i id="bar-f"></i></div><span class="pct" id="pct-f">0%</span></div>
+    <div class="bar-row"><span>建筑实务</span><div class="bar"><i id="bar-s"></i></div><span class="pct" id="pct-s">0%</span></div>
+    <div class="bar-row"><span>阶段任务</span><div class="bar"><i id="bar-p"></i></div><span class="pct" id="pct-p">0%</span></div>
+  </div>
+
+  <div class="card">
+    <h3>考试基本盘</h3>
+    <div class="tbl"><table>
+      <tr><th style="width:86px">科目</th><td>施工管理 / 法规 / 建筑实务（案例 4 大题为生死线）</td></tr>
+      <tr><th>成绩管理</th><td>两年滚动，连续 2 个考试年度过完 3 科</td></tr>
+      <tr><th>考试形式</th><td>山西目前为<mark>纸笔考试</mark>，案例手写作答</td></tr>
+      <tr><th>报名</th><td>约 3 月中旬，窗口约 10 天（参照 2026：3/16–3/25），65 元/科</td></tr>
+      <tr><th>资格审核</th><td>考后审核（8–9 月）：学信网学历证明 + 单位盖章工作履历表</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>全年时间轴</h3>
+    <ul class="tl">
+      <li class="done"><b>2026-08</b> 电话确认报考资格通过</li>
+      <li><b>08–09</b> 扫盲期：施工科普 + 管理精讲开跑</li>
+      <li><b>10–01</b> 基础轮：三科精讲 + 章节题（11–12 月实务换 2027 新版教材）</li>
+      <li><b>2027-03</b> <mark>中旬网上报名</mark>，提前完成注册与学历核验</li>
+      <li><b>02–04中</b> 强化轮：真题 2–3 遍 + 案例每周手写 3–4 道</li>
+      <li><b>04中–05</b> 冲刺轮：集中背诵 + 整套卷掐时间</li>
+      <li><b>05 末</b> 考试（参照 2026：5/30–31）</li>
+      <li><b>08–09</b> 查分 + 考后资格审核</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>阶段任务打卡</h3>
+    <div id="plan-box"></div>
+  </div>
+
+  <div class="card">
+    <h3>资料清单</h3>
+    <p class="dim" style="font-size:13px;margin-bottom:8px">二建真题官方不公布，市面均为回忆整理版；选大机构带解析的即可。总预算 200–800 元，超了先想想是不是智商税。</p>
+    <div id="mat-box"></div>
+  </div>
+
+  <div class="note warn"><b>红线：</b>报名告知承诺制，造假按人社部 31 号令处理、涉嫌犯罪移送司法机关。不碰任何"包报名 / 假证明"。官方入口：<a href="https://rst.shanxi.gov.cn/rsks/" target="_blank">山西人事考试专栏</a> · <a href="https://zjt.shanxi.gov.cn/" target="_blank">山西住建厅</a> · <a href="https://www.chsi.com.cn" target="_blank">学信网</a></div>
+</section>
+
+<!-- ════════════ 施工管理 ════════════ -->
+<section id="mgmt">
+  <h2 class="page-title">建设工程施工管理</h2>
+  <p class="page-lede">七章 · 理解型科目 · 实务案例的地基。学习顺序即章节顺序；成本、进度、质量、合同四章为重中之重。学完一章在章末打卡。</p>
+
+  <!-- 第一章 -->
+  <details class="lec" id="lec-m1">
+    <summary><span class="lec-no">壹</span><span class="lec-t"><b>施工管理</b><small>组织论 · 项目经理 · 风险 · 监理</small></span><span class="lec-stars">★★☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>1. 建设工程项目管理的类型</h4>
+      <p>按管理方立场分：<mark>业主方</mark>（管理的核心，全过程）、设计方、施工方、供货方、建设项目工程总承包方的项目管理。</p>
+      <div class="kp">业主方项目管理的目标：投资目标、进度目标、质量目标；其项目管理是全过程的管理，是<mark>管理的核心</mark>。</div>
+      <div class="kp">施工方项目管理的目标：施工<mark>成本</mark>目标、施工<mark>进度</mark>目标、施工<mark>质量</mark>目标（还有安全目标）。选择题常拿"投资目标"混进施工方目标里——投资目标属于业主方。</div>
+      <h4>2. 施工管理的组织（组织论，年年考）</h4>
+      <p>组织论三大工具关系：<mark>项目结构图</mark>（把项目拆成任务，WBS 思想）→ <mark>组织结构图</mark>（谁指挥谁）→ <mark>合同结构图</mark>（谁和谁签合同）。三种图长得像，考区别：</p>
+      <div class="tbl"><table>
+        <tr><th>图</th><th>反映</th><th>连线含义</th></tr>
+        <tr><td>项目结构图</td><td>任务分解</td><td>矩形框 + 直线，无方向</td></tr>
+        <tr><td>组织结构图</td><td>指令关系</td><td><mark>单向箭线</mark>（上指挥下）</td></tr>
+        <tr><td>合同结构图</td><td>合同关系</td><td><mark>双向箭线</mark></td></tr>
+      </table></div>
+      <h5>三种组织结构模式</h5>
+      <div class="tbl"><table>
+        <tr><th>模式</th><th>指令源</th><th>特点</th></tr>
+        <tr><td>职能组织结构</td><td class="red">多个</td><td>各职能部门都能下指令，易矛盾（传统企业）</td></tr>
+        <tr><td>线性组织结构</td><td class="red">唯一</td><td>指令路径单一不打架，但路径可能太长（军队式）</td></tr>
+        <tr><td>矩阵组织结构</td><td class="red">纵横两个</td><td>纵向职能 + 横向项目；指令矛盾时可由总经理协调或授权一方优先（大型项目常用）</td></tr>
+      </table></div>
+      <div class="memo">指令源数量：职能"多"、线性"一"、矩阵"二"——多一二，念一遍就记住。</div>
+      <div class="svgwrap"><svg viewBox="0 0 720 215" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+        <line x1="240" y1="12" x2="240" y2="185" stroke="#e2d9c8"/><line x1="480" y1="12" x2="480" y2="185" stroke="#e2d9c8"/>
+        <rect x="70" y="22" width="100" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="120" y="42" text-anchor="middle" font-size="13" fill="#33302b">项目经理</text>
+        <rect x="28" y="85" width="88" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="72" y="105" text-anchor="middle" font-size="13" fill="#33302b">技术部</text>
+        <rect x="124" y="85" width="88" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="168" y="105" text-anchor="middle" font-size="13" fill="#33302b">生产部</text>
+        <rect x="70" y="150" width="100" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="120" y="170" text-anchor="middle" font-size="13" fill="#33302b">作业队</text>
+        <path d="M120,52 V66 H72 V77" fill="none" stroke="#33302b" stroke-width="1.5"/><polygon points="68,77 72,85 76,77" fill="#33302b"/>
+        <path d="M120,52 V66 H168 V77" fill="none" stroke="#33302b" stroke-width="1.5"/><polygon points="164,77 168,85 172,77" fill="#33302b"/>
+        <path d="M72,115 V132 H120 V137" fill="none" stroke="#b5502f" stroke-width="1.8"/>
+        <path d="M168,115 V132 H120 V137" fill="none" stroke="#b5502f" stroke-width="1.8"/><polygon points="116,137 120,145 124,137" fill="#b5502f"/>
+        <text x="120" y="205" text-anchor="middle" font-size="12" fill="#b5502f">职能式：多指令源，易打架</text>
+        <rect x="310" y="22" width="100" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="360" y="42" text-anchor="middle" font-size="13" fill="#33302b">项目经理</text>
+        <rect x="310" y="85" width="100" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="360" y="105" text-anchor="middle" font-size="13" fill="#33302b">施工员</text>
+        <rect x="310" y="150" width="100" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="360" y="170" text-anchor="middle" font-size="13" fill="#33302b">作业队</text>
+        <line x1="360" y1="52" x2="360" y2="77" stroke="#33302b" stroke-width="1.8"/><polygon points="356,77 360,85 364,77" fill="#33302b"/>
+        <line x1="360" y1="115" x2="360" y2="142" stroke="#33302b" stroke-width="1.8"/><polygon points="356,142 360,150 364,142" fill="#33302b"/>
+        <text x="360" y="205" text-anchor="middle" font-size="12" fill="#33302b">线性式：指令唯一，路径可能长</text>
+        <rect x="550" y="22" width="100" height="30" rx="4" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="600" y="42" text-anchor="middle" font-size="13" fill="#33302b">职能部门</text>
+        <rect x="486" y="110" width="84" height="30" rx="4" fill="#fffdf8" stroke="#b5502f" stroke-width="1.5"/><text x="528" y="130" text-anchor="middle" font-size="13" fill="#b5502f">项目经理</text>
+        <rect x="600" y="104" width="106" height="40" rx="4" fill="#f6e3da" stroke="#33302b" stroke-width="1.5"/><text x="653" y="129" text-anchor="middle" font-size="13" fill="#33302b">作业任务</text>
+        <line x1="600" y1="52" x2="600" y2="96" stroke="#33302b" stroke-width="1.8"/><polygon points="596,96 600,104 604,96" fill="#33302b"/>
+        <line x1="570" y1="125" x2="592" y2="125" stroke="#b5502f" stroke-width="1.8"/><polygon points="592,121 600,125 592,129" fill="#b5502f"/>
+        <text x="600" y="205" text-anchor="middle" font-size="12" fill="#33302b">矩阵式：纵横两个指令源</text>
+      </svg></div>
+      <h4>3. 施工组织设计</h4>
+      <p>分类：<mark>施工组织总设计</mark>（以整个建设项目为对象）、<mark>单位工程施工组织设计</mark>（以单位工程为对象）、<mark>施工方案</mark>（以分部分项工程为对象）。基本内容五大件：工程概况、施工部署与施工方案、施工进度计划、施工平面图、主要技术经济指标。</p>
+      <h4>4. 项目经理（与二建证书直接相关）</h4>
+      <div class="kp">施工企业项目经理是企业法定代表人在项目上的<mark>委托代理人</mark>，其权限来自企业法定代表人的授权（法定代表人授权委托书）。</div>
+      <ul>
+        <li>项目经理的责任：贯彻法规与企业制度、履行项目管理目标责任书、组织编制项目管理实施规划等</li>
+        <li>大中型工程项目施工的项目经理必须由<mark>取得建造师注册证书</mark>的人员担任</li>
+      </ul>
+      <h4>5. 施工风险管理</h4>
+      <div class="formula">流程：风险识别 → 风险评估 → 风险响应 → 风险控制</div>
+      <p>风险响应对策四种：<mark>规避</mark>（不干了/改方案）、<mark>减轻</mark>、<mark>自留</mark>（自己扛）、<mark>转移</mark>（买保险、分包）。选择题给场景判断属于哪种。</p>
+      <h4>6. 建设工程监理</h4>
+      <div class="kp">监理的工作性质：<mark>服务性、科学性、独立性、公正性</mark>。"公正性"指在委托方（业主）与被监理方（施工方）间公正——监理受业主委托但不偏袒业主。</div>
+      <ul>
+        <li>监理主要方式：<mark>旁站</mark>（关键部位全程盯）、<mark>巡视</mark>（转着看）、<mark>平行检验</mark>（自己独立测一遍）</li>
+        <li>工程建设监理规划：总监理工程师主持编制；监理实施细则：专业监理工程师编制</li>
+        <li>监理发现严重质量隐患：要求整改 → 拒不整改则<mark>报告建设单位</mark>；必要时要求暂停施工</li>
+      </ul>
+      <div class="trap">"监理受业主委托，所以听业主的"——错。监理具有独立性与公正性，对违法违规行为不能配合业主隐瞒。</div>
+      <h4>7. 项目目标的动态控制（每年必考）</h4>
+      <div class="formula">动态控制三步循环：① 目标分解 → ② 收集实际值与计划值<mark>定期比较</mark> → ③ 有偏差则纠偏（循环往复）</div>
+      <div class="kp">纠偏措施四类（判断题）：<mark>组织措施</mark>（调人员、调分工、调流程——最常用且通常最经济）、<mark>管理措施</mark>（调方法、调合同、调风险应对）、<mark>经济措施</mark>（资金保障、奖惩）、<mark>技术措施</mark>（改设计、改方案、改工艺）。给场景判类别是固定题型："调整进度管理的方法和手段"属于管理措施，别选成组织措施。</div>
+      <div class="trap">动态控制的核心环节是"定期<mark>比较</mark>计划值与实际值"——不是"收集数据"也不是"纠偏"，单选爱抠这个字眼。</div>
+      <h4>8. 施工组织设计的编审与动态管理</h4>
+      <ul>
+        <li>施工组织设计由项目负责人主持编制，<mark>施工单位技术负责人</mark>审批；专项施工方案由项目技术负责人组织编制</li>
+        <li>规模较大的分部分项工程和专业性较强的项目，单独编制专项施工方案</li>
+        <li>动态管理：工程设计有重大修改、主要施工方法有重大调整、主要施工资源配置有重大调整、施工环境有重大改变时，<mark>及时修改或补充</mark>施工组织设计，重新审批后实施</li>
+      </ul>
+      <h4>9. 项目管理目标责任书与项目经理权限</h4>
+      <ul>
+        <li>项目管理目标责任书：<mark>企业法定代表人或其授权人</mark>与项目经理协商制定，在项目实施之前签订</li>
+        <li>项目经理主要权限：参与项目招投标与合同签订、参与组建项目部、主持项目部工作、决定授权范围内的资金投入和使用、参与选择物资供应单位、参与选择并直接管理分包人等</li>
+        <li>项目经理不得同时担任两个及以上项目的项目负责人（发包人书面同意且非施工高峰期等特殊情形除外，以教材为准）</li>
+      </ul>
+      <h4>10. 施工风险的评估与分级</h4>
+      <div class="tbl"><table>
+        <tr><th>维度</th><th>说明</th></tr>
+        <tr><td>风险量 = 概率 × 损失</td><td>二维评估：发生概率（大/小）× 损失量（大/小）组成风险等级矩阵</td></tr>
+        <tr><td>概率大 + 损失大</td><td>高风险——优先规避或转移</td></tr>
+        <tr><td>概率小 + 损失小</td><td>低风险——通常自留</td></tr>
+      </table></div>
+      <p>施工风险类型四类：组织风险、经济与管理风险、工程环境风险（自然灾害、地质条件）、技术风险（设计缺陷、工艺不成熟）——给场景判类型。</p>
+      <div class="lec-done"><input type="checkbox" data-id="m1" class="lecdone">本章讲义已学完（同步到首页进度）</div>
+    </div>
+  </details>
+
+  <!-- 第二章 -->
+  <details class="lec" id="lec-m2">
+    <summary><span class="lec-no">贰</span><span class="lec-t"><b>施工成本管理</b><small>费用构成 · 计价 · 赢得值法（必考计算）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>1. 建筑安装工程费的两种拆法（先分清"按什么划分"）</h4>
+      <div class="tbl"><table>
+        <tr><th>划分方式</th><th>组成</th></tr>
+        <tr><td><mark>按费用构成要素</mark></td><td>人工费 + 材料费 + 施工机具使用费 + 企业管理费 + 利润 + 规费 + 税金</td></tr>
+        <tr><td><mark>按造价形成</mark></td><td>分部分项工程费 + 措施项目费 + 其他项目费 + 规费 + 税金</td></tr>
+      </table></div>
+      <div class="memo">要素看"人材机管利规税"；造价看"分措其规税"。规费税金两边都有。</div>
+      <ul>
+        <li>人工费包括：工资、奖金、津贴补贴、加班加点工资、特殊情况下支付的工资</li>
+        <li>规费（政府强制缴纳）：社会保险费（养老/失业/医疗/生育/工伤）+ 住房公积金——<mark>不得作为竞争性费用</mark></li>
+        <li>措施项目费：安全文明施工费（<mark>不可竞争费</mark>）、夜间施工、二次搬运、冬雨期施工、大型机械进出场及安拆等</li>
+      </ul>
+      <div class="trap">"安全文明施工费可以让利优惠"——错，它是不可竞争费用，投标不得低于规定标准。</div>
+      <h4>2. 增值税</h4>
+      <div class="kp">一般计税方法：税率 <mark>9%</mark>（建筑业），税前造价不含可抵扣进项税；简易计税：征收率 <mark>3%</mark>（小规模纳税人或清包工/甲供工程等可选）。具体适用以教材为准。</div>
+      <h4>3. 成本管理的任务链</h4>
+      <div class="formula">成本预测 → 成本计划 → 成本控制 → 成本核算 → 成本分析 → 成本考核</div>
+      <ul>
+        <li>成本计划三类：<mark>竞争性</mark>（投标报价用）、<mark>指导性</mark>（选派项目经理阶段、责任成本目标）、<mark>实施性</mark>（项目施工准备阶段、以施工预算为依据编制）</li>
+        <li>成本核算"三同步"：形象进度、产值统计、实际成本归集三者口径一致</li>
+        <li>成本分析基本方法：比较法、<mark>因素分析法</mark>（连环置换，会算）、差额计算法、比率法</li>
+      </ul>
+      <h5>因素分析法（连环置换）步骤</h5>
+      <ol>
+        <li>确定分析对象（实际 − 目标的差额）</li>
+        <li>各因素按"数量在前、价值在后"排序</li>
+        <li>以目标数为基础，<mark>依次</mark>用实际数替换一个因素，每替换一次算一次差</li>
+        <li>各次差额之和 = 总差额（自检手段）</li>
+      </ol>
+      <h4>4. 赢得值法（挣值法）——案例与选择双料必考</h4>
+      <p>三个基本值（名字长，用程序员方式记：都是"预算/实际 × 计划量/完成量"的组合）：</p>
+      <div class="tbl"><table>
+        <tr><th>符号</th><th>全称</th><th>公式含义</th></tr>
+        <tr><td class="mono">BCWS</td><td>计划工作预算费用</td><td>计划量 × 预算价（基准线）</td></tr>
+        <tr><td class="mono">BCWP</td><td>已完工作预算费用（<mark>赢得值</mark>）</td><td><mark>已完量 × 预算价</mark></td></tr>
+        <tr><td class="mono">ACWP</td><td>已完工作实际费用</td><td>已完量 × 实际价</td></tr>
+      </table></div>
+      <div class="formula">
+        费用偏差 CV = BCWP − ACWP　（负=超支）<br>
+        进度偏差 SV = BCWP − BCWS　（负=拖后）<br>
+        费用绩效指数 CPI = BCWP / ACWP　（&lt;1 超支）<br>
+        进度绩效指数 SPI = BCWP / BCWS　（&lt;1 拖后）
+      </div>
+      <div class="memo">四个公式全部"<mark>赢得值打头</mark>"（BCWP 在前）；比的对象——费用找"实际"（ACWP），进度找"计划"（BCWS）。</div>
+      <div class="svgwrap"><svg viewBox="0 0 720 275" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+        <line x1="60" y1="235" x2="660" y2="235" stroke="#33302b" stroke-width="2"/><polygon points="660,231 668,235 660,239" fill="#33302b"/>
+        <line x1="60" y1="235" x2="60" y2="38" stroke="#33302b" stroke-width="2"/><polygon points="56,38 60,30 64,38" fill="#33302b"/>
+        <text x="640" y="252" font-size="11.5" fill="#6f675c">时间</text>
+        <text x="24" y="36" font-size="11.5" fill="#6f675c">费用</text>
+        <path d="M60,235 Q360,190 640,50" fill="none" stroke="#33302b" stroke-width="2.5" stroke-dasharray="7 5"/>
+        <path d="M60,235 Q280,225 450,75" fill="none" stroke="#b5502f" stroke-width="3"/>
+        <path d="M60,235 Q300,232 450,170" fill="none" stroke="#8a6d1f" stroke-width="3"/>
+        <line x1="450" y1="235" x2="450" y2="60" stroke="#8a8378" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="450" y="52" text-anchor="middle" font-size="12" fill="#6f675c">检查日</text>
+        <circle cx="450" cy="75" r="4" fill="#b5502f"/><circle cx="450" cy="133" r="4" fill="#33302b"/><circle cx="450" cy="170" r="4" fill="#8a6d1f"/>
+        <line x1="466" y1="75" x2="466" y2="170" stroke="#b5502f" stroke-width="1.5"/>
+        <polygon points="462,83 466,75 470,83" fill="#b5502f"/><polygon points="462,162 466,170 470,162" fill="#b5502f"/>
+        <text x="474" y="118" font-size="12" fill="#b5502f">CV 超支</text>
+        <text x="474" y="133" font-size="10.5" fill="#b5502f">BCWP−ACWP&lt;0</text>
+        <line x1="520" y1="133" x2="520" y2="170" stroke="#33302b" stroke-width="1.5"/>
+        <polygon points="516,141 520,133 524,141" fill="#33302b"/><polygon points="516,162 520,170 524,162" fill="#33302b"/>
+        <text x="528" y="148" font-size="12" fill="#33302b">SV 拖后</text>
+        <text x="528" y="163" font-size="10.5" fill="#33302b">BCWP−BCWS&lt;0</text>
+        <line x1="75" y1="52" x2="110" y2="52" stroke="#33302b" stroke-width="2.5" stroke-dasharray="7 5"/><text x="116" y="56" font-size="12" fill="#33302b">BCWS 计划值（基准线）</text>
+        <line x1="75" y1="72" x2="110" y2="72" stroke="#b5502f" stroke-width="3"/><text x="116" y="76" font-size="12" fill="#33302b">ACWP 实际花费</text>
+        <line x1="75" y1="92" x2="110" y2="92" stroke="#8a6d1f" stroke-width="3"/><text x="116" y="96" font-size="12" fill="#33302b">BCWP 赢得值 = 已完量 × 预算价</text>
+        <text x="360" y="268" text-anchor="middle" font-size="11.5" fill="#6f675c">图为"又超支又拖后"：实际花的（红）在上，实际挣的（金）在下</text>
+      </svg></div>
+      <div class="example">
+        <div class="ex-q">某工程预算单价 100 元/m³，计划 5 月完成 1000m³；实际完成 900m³，实际单价 110 元/m³。求 CV、SV 并判断状态。</div>
+        <div class="ex-a">BCWS=1000×100=10 万；BCWP=900×100=9 万；ACWP=900×110=9.9 万。<br>CV=9−9.9=<b>−0.9 万（超支）</b>；SV=9−10=<b>−1 万（进度拖后）</b>。<br>口径检查：两个偏差都是 BCWP 打头，费用减实际、进度减计划。</div>
+      </div>
+      <h4>5. 降低成本的措施</h4>
+      <p>四类措施判断题：<mark>组织</mark>措施（调人调结构，一般不增加费用）、<mark>技术</mark>措施（改方案改工艺）、<mark>经济</mark>措施（资金激励审核）、<mark>合同</mark>措施（索赔、合同条款）。给场景选类别，注意组织措施最经济。</p>
+      <h4>6. 费用细目深挖（选择题细节库）</h4>
+      <ul>
+        <li><mark>材料费</mark>构成：材料原价 + 运杂费 + 运输损耗费 + <mark>采购及保管费</mark>（四项都算材料费，别漏采保费）</li>
+        <li><mark>施工机具使用费</mark>（台班单价七项）：折旧费、检修费、维护费、安拆费及场外运费、人工费（机上司机）、燃料动力费、税费</li>
+        <li><mark>企业管理费</mark>：管理人员工资、办公费、差旅费、固定资产使用费、劳动保险费、工会经费、职工教育经费、财产保险费、财务费、税金（附加税费）以及<mark>检验试验费</mark>等</li>
+      </ul>
+      <div class="trap">检验试验费的归属是经典陷阱：施工企业按规范<mark>自行检验</mark>的费用计入企业管理费；<mark>新结构、新材料的试验费</mark>和建设单位要求的<mark>对具有出厂合格证明的材料进行检验</mark>的费用，由<mark>建设单位</mark>承担（不在企业管理费里）。</div>
+      <h4>7. 合同价款的支付链条</h4>
+      <div class="formula">预付款（开工前，用于备料，随进度款<mark>逐次扣回</mark>）→ 进度款（按月/按节点计量支付）→ 竣工结算款 → 质量保证金（缺陷责任期满返还）</div>
+      <ul>
+        <li>安全文明施工费应<mark>及时预付、专款专用</mark>，不得作为竞争性报价</li>
+        <li>质量保证金预留比例：不得超过工程价款结算总额的 <mark>3%</mark>；缺陷责任期一般 1 年、最长不超过 <mark>2 年</mark>（缺陷责任期不等于保修期，保修期见法规科第七章）</li>
+      </ul>
+      <h4>8. 成本分析方法补充</h4>
+      <ul>
+        <li>比较法的三种对比：实际与<mark>目标</mark>对比、本期实际与<mark>上期实际</mark>对比、与本行业<mark>先进水平</mark>对比</li>
+        <li>差额计算法：因素分析法的简化形式；比率法：相关比率、构成比率、动态比率</li>
+      </ul>
+      <div class="example">
+        <div class="ex-q">因素分析法完整算例：某分项目标成本 = 500m³ × 400元/m³ × 损耗系数1.05 = 210 000 元；实际 = 520m³ × 410元/m³ × 1.03 = 219 596 元。分析各因素影响。</div>
+        <div class="ex-a">排序规则：数量在前、价值在后、损耗最后。<br>
+        ① 换产量：520×400×1.05 = 218 400，差 +8 400（产量增加使成本升高 8400）<br>
+        ② 换单价：520×410×1.05 = 223 860，差 +5 460<br>
+        ③ 换损耗：520×410×1.03 = 219 596，差 −4 264（损耗率下降节约 4264）<br>
+        验算：8 400 + 5 460 − 4 264 = 9 596 = 总差额（219 596 − 210 000）。<br>
+        考点：<b>替换顺序不能乱</b>（乱了每项影响值全变）；每次只换一个因素；各项差额之和必等于总差额（用来自检）。</div>
+      </div>
+      <h4>9. 施工成本控制的依据</h4>
+      <p>合同文件、成本计划、<mark>进度报告</mark>、工程变更——注意进度报告也是成本控制依据（成本与进度天生绑定，赢得值法就是明证），单选常考。</p>
+      <div class="lec-done"><input type="checkbox" data-id="m2" class="lecdone">本章讲义已学完</div>
+    </div>
+  </details>
+
+  <!-- 第三章 -->
+  <details class="lec" id="lec-m3">
+    <summary><span class="lec-no">叁</span><span class="lec-t"><b>施工进度管理</b><small>横道图 · 双代号网络计划 · 前锋线（你的送分章）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>1. 进度计划的表达：横道图 vs 网络图</h4>
+      <div class="tbl"><table>
+        <tr><th>横道图（甘特图）</th><th>网络图</th></tr>
+        <tr><td>直观易懂，但<mark>不能反映工作间逻辑关系</mark>、找不出关键路径</td><td>逻辑关系清晰、能算时间参数、能找关键路径，是考试主角</td></tr>
+      </table></div>
+      <h4>2. 双代号网络图：术语翻译（程序员视角）</h4>
+      <div class="tbl"><table>
+        <tr><th>考试术语</th><th>程序员术语</th></tr>
+        <tr><td>双代号网络图</td><td>DAG：<mark>边=工作</mark>，节点=事件</td></tr>
+        <tr><td>紧前 / 紧后工作</td><td>前驱 / 后继</td></tr>
+        <tr><td>虚工作（虚箭线，时长 0）</td><td>为"一条边唯一标识一项工作"约束而加的纯依赖边</td></tr>
+        <tr><td>关键路径</td><td>源到汇的<mark>最长路径</mark>（决定总工期）</td></tr>
+        <tr><td>总时差 TF</td><td>slack：最多拖多久不影响<mark>总工期</mark></td></tr>
+        <tr><td>自由时差 FF</td><td>最多拖多久不影响<mark>紧后工作最早开始</mark></td></tr>
+      </table></div>
+      <div class="kp">绘图规则：单起点、单终点、无循环、无双向箭头；两节点之间<mark>只能有一条实箭线</mark>（所以需要虚工作）；节点编号箭尾小于箭头。</div>
+      <h4>3. 六个时间参数与算法</h4>
+      <div class="formula">
+        EF = ES + D　　LS = LF − D<br>
+        TF = LS − ES = LF − EF<br>
+        FF = min(紧后 ES) − EF　（无紧后：FF = 工期 − EF）<br>
+        正推(拓扑序)：ES = max(前驱 EF)；工期 T = max(EF)<br>
+        逆推(逆序)：LF = min(紧后 LS)<br>
+        TF = 0 的工作连起来 = 关键路径
+      </div>
+      <div class="note">三条恒真性质：关键工作 ⇔ TF=0；<b>FF ≤ TF 恒成立</b>；关键路径可能不止一条。</div>
+      <h4>4. 完整例题</h4>
+      <div class="tbl"><table>
+        <tr><th class="c">工作</th><th class="c">A</th><th class="c">B</th><th class="c">C</th><th class="c">D</th><th class="c">E</th><th class="c">F</th></tr>
+        <tr><th>持续(天)</th><td class="c mono">3</td><td class="c mono">4</td><td class="c mono">5</td><td class="c mono">6</td><td class="c mono">4</td><td class="c mono">3</td></tr>
+        <tr><th>紧前</th><td class="c">—</td><td class="c">—</td><td class="c">A</td><td class="c">A、B</td><td class="c">C、D</td><td class="c">D</td></tr>
+      </table></div>
+      <div class="svgwrap">
+        <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" font-family="Consolas,monospace">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33302b"/></marker>
+            <marker id="arK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5502f"/></marker>
+          </defs>
+          <line x1="77" y1="160" x2="198" y2="90"  stroke="#33302b" stroke-width="2" marker-end="url(#ar)"/>
+          <line x1="215" y1="100" x2="215" y2="240" stroke="#33302b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#ar)"/>
+          <line x1="235" y1="80" x2="520" y2="80"  stroke="#33302b" stroke-width="2" marker-end="url(#ar)"/>
+          <line x1="419" y1="253" x2="621" y2="177" stroke="#33302b" stroke-width="2" marker-end="url(#ar)"/>
+          <line x1="77" y1="180" x2="198" y2="250" stroke="#b5502f" stroke-width="3.5" marker-end="url(#arK)"/>
+          <line x1="235" y1="260" x2="380" y2="260" stroke="#b5502f" stroke-width="3.5" marker-end="url(#arK)"/>
+          <line x1="412" y1="244" x2="528" y2="96" stroke="#b5502f" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#arK)"/>
+          <line x1="555" y1="93" x2="625" y2="157" stroke="#b5502f" stroke-width="3.5" marker-end="url(#arK)"/>
+          <text x="120" y="112" fill="#33302b" font-size="15">A/3</text>
+          <text x="112" y="238" fill="#b5502f" font-size="16" font-weight="bold">B/4</text>
+          <text x="222" y="174" fill="#8a8378" font-size="12">虚0</text>
+          <text x="290" y="284" fill="#b5502f" font-size="16" font-weight="bold">D/6</text>
+          <text x="362" y="66" fill="#33302b" font-size="15">C/5</text>
+          <text x="482" y="185" fill="#b5502f" font-size="12">虚0</text>
+          <text x="600" y="112" fill="#b5502f" font-size="16" font-weight="bold">E/4</text>
+          <text x="520" y="238" fill="#33302b" font-size="15">F/3</text>
+          <g font-size="15" text-anchor="middle" font-weight="bold">
+            <circle cx="60"  cy="170" r="18" fill="#fffdf8" stroke="#33302b" stroke-width="2"/><text x="60"  y="175" fill="#33302b">①</text>
+            <circle cx="215" cy="80"  r="18" fill="#fffdf8" stroke="#33302b" stroke-width="2"/><text x="215" y="85"  fill="#33302b">②</text>
+            <circle cx="215" cy="260" r="18" fill="#fffdf8" stroke="#b5502f" stroke-width="2.5"/><text x="215" y="265" fill="#b5502f">③</text>
+            <circle cx="400" cy="260" r="18" fill="#fffdf8" stroke="#b5502f" stroke-width="2.5"/><text x="400" y="265" fill="#b5502f">④</text>
+            <circle cx="540" cy="80"  r="18" fill="#fffdf8" stroke="#b5502f" stroke-width="2.5"/><text x="540" y="85"  fill="#b5502f">⑤</text>
+            <circle cx="640" cy="170" r="18" fill="#fffdf8" stroke="#b5502f" stroke-width="2.5"/><text x="640" y="175" fill="#b5502f">⑥</text>
+          </g>
+          <text x="60" y="320" fill="#8a8378" font-size="13">关键路径：B→D→E　总工期 = 4+6+4 = 14 天</text>
+        </svg>
+        <div class="legend"><span><i class="l-key"></i>关键路径(TF=0)</span><span><i></i>普通工作</span><span><i class="l-dash"></i>虚工作(时长0)</span></div>
+      </div>
+      <div class="tbl"><table>
+        <tr><th class="c">工作</th><th class="c">ES</th><th class="c">EF</th><th class="c">LF</th><th class="c">LS</th><th class="c">TF</th><th class="c">FF</th><th class="c">关键?</th></tr>
+        <tr><td class="c">A</td><td class="c mono">0</td><td class="c mono">3</td><td class="c mono">4</td><td class="c mono">1</td><td class="c mono">1</td><td class="c mono">0</td><td class="c"></td></tr>
+        <tr><td class="c">B</td><td class="c mono">0</td><td class="c mono">4</td><td class="c mono">4</td><td class="c mono">0</td><td class="c mono red">0</td><td class="c mono">0</td><td class="c red">★</td></tr>
+        <tr><td class="c">C</td><td class="c mono">3</td><td class="c mono">8</td><td class="c mono">10</td><td class="c mono">5</td><td class="c mono">2</td><td class="c mono">2</td><td class="c"></td></tr>
+        <tr><td class="c">D</td><td class="c mono">4</td><td class="c mono">10</td><td class="c mono">10</td><td class="c mono">4</td><td class="c mono red">0</td><td class="c mono">0</td><td class="c red">★</td></tr>
+        <tr><td class="c">E</td><td class="c mono">10</td><td class="c mono">14</td><td class="c mono">14</td><td class="c mono">10</td><td class="c mono red">0</td><td class="c mono">0</td><td class="c red">★</td></tr>
+        <tr><td class="c">F</td><td class="c mono">10</td><td class="c mono">13</td><td class="c mono">14</td><td class="c mono">11</td><td class="c mono">1</td><td class="c mono">1</td><td class="c"></td></tr>
+      </table></div>
+      <div class="trap">A 的 TF=1 但 FF=0：A 拖 1 天不影响总工期，但会顶掉 C、D 的最早开始。TF 是全局松弛、FF 是局部松弛——选择题高频陷阱。</div>
+      <h4>5. 考试套路</h4>
+      <ul>
+        <li><b>工期影响判断</b>：工作 X 拖延 n 天——n ≤ TF 不影响；n ＞ TF 则工期延长 <mark>(n − TF)</mark> 天。案例常配"能否索赔工期"一起考</li>
+        <li><b>关键路径转移</b>：压缩某关键工作后，别的路径可能变成新关键路径（赶工题必挖的坑）。自测：把 B 改成 2 天重算——工期 13，关键路径变为 A→D→E</li>
+        <li><b>时标网络计划</b>：带时间坐标的网络图，<mark>波形线的水平长度 = 自由时差</mark></li>
+        <li><b>前锋线比较法</b>：检查日在时标网络上把各工作实际进度点连成折线——点在检查日<mark>左侧=拖后</mark>、右侧=超前，拖后量与 TF 比判断是否影响工期</li>
+      </ul>
+      <h4>6. 进度计划的调整与措施</h4>
+      <ul>
+        <li>压缩关键工作持续时间（赶工优先压：费用增加少的、对质量安全影响小的关键工作）</li>
+        <li>四类进度控制措施：组织（<mark>最重要</mark>）、管理、经济、技术——"落实进度控制人员与分工"属组织措施，考判断类别</li>
+      </ul>
+      <h4>7. 流水施工（组织方式与工期计算）</h4>
+      <div class="tbl"><table>
+        <tr><th>组织方式</th><th>特点</th></tr>
+        <tr><td>依次施工</td><td>一段干完再干下一段：工期最长、资源投入少、劳动力无法连续</td></tr>
+        <tr><td>平行施工</td><td>各段同时开干：工期最短、资源高度集中、现场管理压力大</td></tr>
+        <tr><td><mark>流水施工</mark></td><td>各专业队按节拍依次进入各段：工期较短 + 资源均衡 + 专业队连续作业（工程主流方式）</td></tr>
+      </table></div>
+      <ul>
+        <li>流水参数三类：<mark>工艺参数</mark>（施工过程数 n）、<mark>空间参数</mark>（施工段数 m）、<mark>时间参数</mark>（流水节拍 t、流水步距 K、间歇时间）</li>
+        <li>等节奏（固定节拍）流水工期公式：<span class="mono">T = (m + n − 1) × K + 间歇</span></li>
+      </ul>
+      <div class="example">
+        <div class="ex-q">某基础工程分 4 个施工段（m=4），有挖土、垫层、砌基础 3 个施工过程（n=3），流水节拍均为 2 天，无间歇。求流水施工工期。</div>
+        <div class="ex-a">等节拍流水：K = t = 2 天。T = (4 + 3 − 1) × 2 = <b>12 天</b>。<br>对比：依次施工 T = 4×3×2 = 24 天；平行施工 T = 3×2 = 6 天但要 4 倍资源。流水 12 天是"工期与资源的折中"——这个对比本身就是选择题考点。</div>
+      </div>
+      <h4>8. 单代号网络图与时标网络计划</h4>
+      <ul>
+        <li>单代号：<mark>节点表示工作</mark>、箭线只表示逻辑关系；相邻两项工作之间有"时间间隔 LAG"概念</li>
+        <li>时标网络计划：横轴带时间刻度；<mark>实箭线水平投影长度 = 持续时间</mark>；<mark>波形线长度 = 自由时差</mark>；自始至终<mark>不出现波形线</mark>的通路即关键线路（识图题直接数波形线）</li>
+      </ul>
+      <h4>9. 实际进度与计划进度的比较方法（四件套）</h4>
+      <div class="tbl"><table>
+        <tr><th>方法</th><th>识别特征</th></tr>
+        <tr><td>横道图比较法</td><td>直观，适合进展匀速的简单对比</td></tr>
+        <tr><td>S 曲线比较法</td><td>累计完成量随时间的 S 形曲线，实际线在计划线<mark>左上=超前</mark>、右下=拖后</td></tr>
+        <tr><td>香蕉曲线</td><td>ES 曲线与 LS 曲线围成"香蕉"包络区，实际进度应落在<mark>香蕉区内</mark>为正常</td></tr>
+        <tr><td><mark>前锋线比较法</mark></td><td>在时标网络上把检查日各工作实际进度点连成折线：点在检查日<mark>左侧=拖后</mark>（拖后量与 TF 比判断是否影响工期）、右侧=超前</td></tr>
+      </table></div>
+      <div class="memo">识别题秒判：出现"香蕉"必选香蕉曲线；出现"时标网络+折线"必是前锋线。</div>
+      <div class="lec-done"><input type="checkbox" data-id="m3" class="lecdone">本章讲义已学完</div>
+    </div>
+  </details>
+
+  <!-- 第四章 -->
+  <details class="lec" id="lec-m4">
+    <summary><span class="lec-no">肆</span><span class="lec-t"><b>施工质量管理</b><small>4M1E · 验收体系 · 质量事故处理</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>1. 影响施工质量的五大因素（4M1E）</h4>
+      <div class="kp"><mark>人</mark>（Man）、<mark>材料</mark>（Material）、<mark>机械</mark>（Machine）、<mark>方法</mark>（Method）、<mark>环境</mark>（Environment）。选择题给场景判断属于哪个因素：操作工失误=人，配合比错=方法/材料，湿度大=环境。</div>
+      <h4>2. 质量控制的三个阶段</h4>
+      <ul>
+        <li><mark>事前控制</mark>：编方案、交底、审图、材料进场检验——预防为主，最重要</li>
+        <li><mark>事中控制</mark>：工序控制、质量控制点、旁站巡视</li>
+        <li><mark>事后控制</mark>：验收、不合格处理</li>
+      </ul>
+      <p>PDCA 循环：计划 Plan → 实施 Do → 检查 Check → 处理 Action（纠偏 + 预防改进），处理阶段是循环上升的关键。</p>
+      <h4>3. 施工质量验收体系（组织者是谁——高频考点）</h4>
+      <div class="formula">检验批 → 分项工程 → 分部工程 → 单位工程</div>
+      <div class="tbl"><table>
+        <tr><th>层次</th><th>验收组织者</th><th>特别提示</th></tr>
+        <tr><td>检验批 / 分项</td><td><mark>专业监理工程师</mark>组织</td><td>施工单位专业质量检查员、专业工长参加</td></tr>
+        <tr><td>分部工程</td><td><mark>总监理工程师</mark>组织</td><td><mark>地基基础、主体结构</mark>分部：勘察、设计单位项目负责人和施工单位技术、质量部门负责人也应参加</td></tr>
+        <tr><td>单位工程</td><td>竣工预验收：总监组织；正式验收：<mark>建设单位项目负责人</mark>组织</td><td>五方参加（建设/勘察/设计/施工/监理）</td></tr>
+      </table></div>
+      <div class="memo">组织者层层升级：批项找"专监"，分部找"总监"，单位找"建设单位"。</div>
+      <div class="svgwrap"><svg viewBox="0 0 720 190" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+        <rect x="40" y="120" width="150" height="42" fill="#b5502f" opacity=".1" stroke="#b5502f"/>
+        <rect x="200" y="95" width="150" height="67" fill="#b5502f" opacity=".18" stroke="#b5502f"/>
+        <rect x="360" y="70" width="150" height="92" fill="#b5502f" opacity=".28" stroke="#b5502f"/>
+        <rect x="520" y="45" width="150" height="117" fill="#b5502f" opacity=".4" stroke="#b5502f"/>
+        <text x="115" y="140" text-anchor="middle" font-size="13.5" fill="#33302b" font-weight="bold">检验批</text>
+        <text x="115" y="156" text-anchor="middle" font-size="11" fill="#6f675c">专业监理组织</text>
+        <text x="275" y="115" text-anchor="middle" font-size="13.5" fill="#33302b" font-weight="bold">分项工程</text>
+        <text x="275" y="131" text-anchor="middle" font-size="11" fill="#6f675c">专业监理组织</text>
+        <text x="435" y="90" text-anchor="middle" font-size="13.5" fill="#33302b" font-weight="bold">分部工程</text>
+        <text x="435" y="106" text-anchor="middle" font-size="11" fill="#6f675c">总监理工程师组织</text>
+        <text x="595" y="65" text-anchor="middle" font-size="13.5" fill="#fffdf8" font-weight="bold">单位工程</text>
+        <text x="595" y="81" text-anchor="middle" font-size="11" fill="#fffdf8">建设单位项目负责人</text>
+        <text x="595" y="96" text-anchor="middle" font-size="11" fill="#fffdf8">组织 · 五方参加</text>
+        <line x1="30" y1="162" x2="700" y2="162" stroke="#33302b" stroke-width="2"/>
+        <text x="360" y="182" text-anchor="middle" font-size="11.5" fill="#6f675c">从最小单元到一栋楼，验收组织者随层级升格</text>
+      </svg></div>
+      <div class="kp">检验批合格条件：主控项目<mark>全部合格</mark> + 一般项目符合规定 + 具有完整的施工操作依据、质量验收记录。主控项目一票否决。</div>
+      <h4>4. 不合格的处理（案例爱考的"五档"）</h4>
+      <ol>
+        <li>返工重做或更换器具设备的，重新验收</li>
+        <li>经有资质的检测机构<mark>检测鉴定能达到设计要求</mark>的，应予以验收</li>
+        <li>检测鉴定达不到设计要求、但经<mark>原设计单位核算认可</mark>能满足安全和使用功能的，可予以验收（让步接受）</li>
+        <li>经返修或加固处理能满足安全使用要求的，可按<mark>技术处理方案和协商文件</mark>验收</li>
+        <li>通过返修加固仍不能满足安全使用要求的分部工程、单位工程，<mark>严禁验收</mark></li>
+      </ol>
+      <h4>5. 质量事故等级与处理</h4>
+      <div class="tbl"><table>
+        <tr><th>等级</th><th>死亡</th><th>重伤</th><th>直接经济损失</th></tr>
+        <tr><td>特别重大</td><td>30 人以上</td><td>100 人以上</td><td>1 亿元以上</td></tr>
+        <tr><td>重大</td><td>10–30 人</td><td>50–100 人</td><td>5000 万–1 亿</td></tr>
+        <tr><td>较大</td><td>3–10 人</td><td>10–50 人</td><td>1000 万–5000 万</td></tr>
+        <tr><td>一般</td><td>3 人以下</td><td>10 人以下</td><td>100 万–1000 万（质量事故口径）</td></tr>
+      </table></div>
+      <p class="dim" style="font-size:13px">"以上"含本数、"以下"不含本数。质量事故与安全事故的一般档损失下限不同，具体以教材为准。</p>
+      <div class="formula">事故处理程序：事故报告 → 调查 → 原因分析 → 制定处理方案 → 实施处理 → 鉴定验收 → 结论</div>
+      <div class="trap">"发生质量问题就返工"——错。能鉴定合格的直接验收，能让步的让步，返工是代价最大的选项。案例答"处理方式"时按上面五档逐条判断。</div>
+      <h4>6. 全面质量管理与体系文件</h4>
+      <ul>
+        <li>全面质量管理"三全"：<mark>全员、全过程、全方位</mark>的质量管理</li>
+        <li>质量保证体系文件金字塔：<mark>质量手册</mark>（纲领）→ <mark>程序文件</mark>（支持性文件）→ <mark>作业指导书与质量记录</mark>（操作层）——层级顺序单选常考</li>
+      </ul>
+      <h4>7. 质量控制点的设置对象（案例挑"该设哪里"）</h4>
+      <p>关键部位、关键工序、薄弱环节：人的行为（高空、起重）、材料质量与性能、关键技术参数（配合比、预应力张拉值）、施工顺序（先撑后挖）、常见质量通病部位、新材料新工艺首次使用处、隐蔽工程等。</p>
+      <h4>8. 见证取样送检（数字考点）</h4>
+      <div class="kp">涉及<mark>结构安全</mark>的试块、试件和材料实行见证取样送检，见证取样比例<mark>不得低于应取样数量的 30%</mark>；见证人员由建设单位或监理单位具备资格的人员担任；试样送至具备资质的检测机构。</div>
+      <h4>9. 质量事故报告时限</h4>
+      <div class="numcard">
+        <div><b>立即</b>现场人员向单位负责人报告</div>
+        <div><b>1 小时</b>建设单位负责人向县级以上住建主管部门报告</div>
+      </div>
+      <h4>10. 常见质量通病（案例素材库）</h4>
+      <div class="tbl"><table>
+        <tr><th>通病</th><th>典型原因</th></tr>
+        <tr><td>混凝土蜂窝、麻面</td><td>振捣不实、模板漏浆、拆模过早</td></tr>
+        <tr><td>露筋</td><td>保护层垫块位移或漏放、振捣时钢筋移位</td></tr>
+        <tr><td>墙面抹灰空鼓开裂</td><td>基层清理不净、未浇水湿润、砂浆配比不当、一次抹灰过厚</td></tr>
+        <tr><td>屋面、卫生间渗漏</td><td>防水层细部处理不当、保护层破坏防水层、蓄水试验未做</td></tr>
+      </table></div>
+      <h4>11. 政府质量监督</h4>
+      <ul>
+        <li>性质：<mark>行政执法行为</mark>（受政府主管部门委托的监督机构实施）</li>
+        <li>内容：抽查工程质量、抽查主体质量行为、监督竣工验收等；程序：受理报监 → 制定监督计划 → 抽查抽测 → 竣工验收监督 → 形成质量监督报告</li>
+      </ul>
+      <div class="lec-done"><input type="checkbox" data-id="m4" class="lecdone">本章讲义已学完</div>
+    </div>
+  </details>
+
+  <!-- 第五章 -->
+  <details class="lec" id="lec-m5">
+    <summary><span class="lec-no">伍</span><span class="lec-t"><b>职业健康安全与环境管理</b><small>安全制度 · 危大工程 · 事故等级（必背）</small></span><span class="lec-stars">★★☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>1. 安全生产管理制度</h4>
+      <ul>
+        <li><mark>安全生产责任制</mark>：最基本、最核心的制度，纵向到底横向到边</li>
+        <li>三级安全教育：<mark>公司级 → 项目级 → 班组级</mark>（新工人进场必经）</li>
+        <li>安管"三类人员"考核：企业主要负责人、项目负责人、专职安全生产管理人员</li>
+        <li>特种作业人员（电工、焊工、架子工、起重司机等）<mark>持证上岗</mark></li>
+        <li>安全检查形式：日常、专项、季节性、节假日、开工复工检查</li>
+      </ul>
+      <h4>2. 危大工程（案例高频背景）</h4>
+      <div class="kp">危险性较大的分部分项工程（深基坑、高支模、起重吊装、脚手架、拆除等）：施工前编制<mark>专项施工方案</mark>；超过一定规模的危大工程，还要组织<mark>专家论证</mark>。方案由施工单位技术负责人审核签字、总监理工程师审查签字。</div>
+      <p class="dim" style="font-size:13px">"深基坑 3/5 米、高支模 8 米"等具体划分数字以教材与《危大工程安全管理规定》为准，实务科会细讲。</p>
+      <h4>3. 生产安全事故等级（必背表，法规科也考）</h4>
+      <div class="tbl"><table>
+        <tr><th>等级</th><th>死亡</th><th>重伤</th><th>直接经济损失</th></tr>
+        <tr><td>特别重大</td><td>30 人以上</td><td>100 人以上</td><td>1 亿元以上</td></tr>
+        <tr><td>重大</td><td>10–30 人</td><td>50–100 人</td><td>5000 万–1 亿</td></tr>
+        <tr><td>较大</td><td>3–10 人</td><td>10–50 人</td><td>1000 万–5000 万</td></tr>
+        <tr><td>一般</td><td>3 人以下</td><td>10 人以下</td><td>1000 万以下</td></tr>
+      </table></div>
+      <div class="memo">记边界数就够：死亡 3 / 10 / 30，重伤 10 / 50 / 100，损失 1000 万 / 5000 万 / 1 亿。</div>
+      <h4>4. 事故报告（数字题）</h4>
+      <div class="numcard">
+        <div><b>立即</b>现场人员报告单位负责人</div>
+        <div><b>1 小时</b>单位负责人向政府主管部门报告</div>
+        <div><b>30 日</b>伤亡人数变化及时补报的时限</div>
+      </div>
+      <div class="trap">"先自查清楚再上报"——错。1 小时时限是硬性的；情况紧急时现场人员可直接向主管部门报告。</div>
+      <h4>5. 文明施工与环境保护</h4>
+      <ul>
+        <li>施工场界噪声排放限值：<mark>昼间 70dB、夜间 55dB</mark>；夜间施工需许可并公告周边</li>
+        <li>扬尘控制：围挡、覆盖、洒水、硬化、冲洗（工地"六个百分百"方向）</li>
+        <li>固体废物按规定处置，危险废物交有资质单位</li>
+      </ul>
+      <p>职业健康安全管理体系与环境管理体系均按 <span class="mono">PDCA</span> 模式运行，"持续改进"是灵魂。</p>
+      <h4>6. 隐患排查与整改闭环</h4>
+      <ul>
+        <li>事故隐患二分法：<mark>物的不安全状态</mark> + <mark>人的不安全行为</mark>（管理上还有"管理缺陷"）——给场景判类别</li>
+        <li>整改闭环：检查记录 → 下发整改通知（<mark>定人、定时间、定措施</mark>）→ 整改 → <mark>复查销项</mark>；重大隐患应停工整改</li>
+      </ul>
+      <h4>7. 应急预案三级体系（稳定考点）</h4>
+      <div class="tbl"><table>
+        <tr><th>层级</th><th>对象</th></tr>
+        <tr><td><mark>综合</mark>应急预案</td><td>企业层面总纲</td></tr>
+        <tr><td><mark>专项</mark>应急预案</td><td>针对具体事故类型（坍塌、高坠、触电、火灾）</td></tr>
+        <tr><td><mark>现场处置方案</mark></td><td>针对具体场所、岗位的处置动作</td></tr>
+      </table></div>
+      <h4>8. 事故处理"四不放过"（必背）</h4>
+      <div class="kp">事故<mark>原因未查清</mark>不放过、<mark>责任人员未处理</mark>不放过、<mark>有关人员未受教育</mark>不放过、<mark>防范措施未落实</mark>不放过——案例答"事故处理是否妥当"的万能对照尺。</div>
+      <h4>9. 文明施工硬数字</h4>
+      <div class="numcard">
+        <div><b>2.5 m</b>市区主要路段现场围挡最低高度</div>
+        <div><b>1.8 m</b>一般路段围挡最低高度</div>
+        <div><b>五牌一图</b>工程概况 / 管理人员及监督电话 / 消防保卫 / 安全生产 / 文明施工 + 总平面图</div>
+      </div>
+      <p>绿色施工"四节一环保"：节能、节地、节水、节材 + 环境保护。</p>
+      <div class="lec-done"><input type="checkbox" data-id="m5" class="lecdone">本章讲义已学完</div>
+    </div>
+  </details>
+
+  <!-- 第六章 -->
+  <details class="lec" id="lec-m6">
+    <summary><span class="lec-no">陆</span><span class="lec-t"><b>建设工程合同与合同管理</b><small>合同类型 · 索赔（案例之王）· 担保</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>1. 合同计价方式（风险归谁——判断题核心）</h4>
+      <div class="tbl"><table>
+        <tr><th>类型</th><th>风险承担</th><th>适用</th></tr>
+        <tr><td>固定总价（"闭口价"）</td><td class="red">承包人风险大</td><td>工期较短、图纸完备、变更少的工程</td></tr>
+        <tr><td>单价合同</td><td>量的风险归发包人、价的风险归承包人</td><td>图纸不完备但清单可列的工程（最常用）</td></tr>
+        <tr><td>成本加酬金</td><td class="red">发包人风险大</td><td>紧急抢险、救灾、新型项目</td></tr>
+      </table></div>
+      <h4>2. 合同文件解释顺序（示范文本）</h4>
+      <p>协议书 → 中标通知书 → 投标函及其附录 → 专用合同条款 → 通用合同条款 → 技术标准和要求 → 图纸 → 已标价工程量清单 → 其他。<span class="dim">（记忆锚点：越"专属"效力越高，协议书最大；专用条款压过通用条款。顺序以教材/合同文本为准）</span></p>
+      <h4>3. 索赔——案例题之王</h4>
+      <div class="kp">索赔成立三要件：与合同对照<mark>有依据</mark>、损失<mark>非承包人自身原因</mark>造成、按<mark>程序和时限</mark>提出。案例答"能否索赔"永远围绕这三条展开。</div>
+      <div class="numcard">
+        <div><b>28 天</b>知道或应当知道索赔事件后，提交索赔意向通知的时限（逾期丧失权利）</div>
+        <div><b>28 天</b>发出意向通知后，提交正式索赔报告的时限</div>
+      </div>
+      <h5>常见事件可索赔内容判断表（背熟，案例直接用）</h5>
+      <div class="tbl"><table>
+        <tr><th>事件</th><th>工期</th><th>费用</th><th>利润</th></tr>
+        <tr><td>发包人原因（图纸迟交、场地迟交、指令变更、暂停）</td><td class="c">√</td><td class="c">√</td><td class="c">√</td></tr>
+        <tr><td>不可抗力（地震、洪水、战争等）</td><td class="c">√</td><td class="c">部分（见下）</td><td class="c red">×</td></tr>
+        <tr><td>异常恶劣天气（未构成不可抗力）</td><td class="c">√</td><td class="c red">×</td><td class="c red">×</td></tr>
+        <tr><td>承包人自身原因（自己设备坏、自己人手不足）</td><td class="c red">×</td><td class="c red">×</td><td class="c red">×</td></tr>
+      </table></div>
+      <h5>不可抗力损失分担（高频）</h5>
+      <ul>
+        <li>工程本身损害、第三方人员伤亡财产损失、运至现场的材料设备损坏：<mark>发包人承担</mark></li>
+        <li>双方各自的人员伤亡：<mark>各自承担</mark></li>
+        <li>承包人的施工机械损坏及停工损失：<mark>承包人承担</mark></li>
+        <li>工期：<mark>顺延</mark></li>
+      </ul>
+      <div class="memo">不可抗力分担一句话：工程归发包人，人员各家管各家，机械停工承包人自己扛，工期顺延不给利润。</div>
+      <div class="example">
+        <div class="ex-q">基坑开挖遇未探明的地下管线致停工 5 天（承包人自有挖机闲置），随后连降大雨（当地正常季节性降雨）又停 3 天。问可索赔什么？</div>
+        <div class="ex-a">地下管线属发包人应提供资料不实 / 不可预见障碍：5 天可索赔<b>工期 + 费用（含闲置机械费按台班折旧计）+ 利润视合同约定</b>；正常季节性降雨属承包人应预见的风险：3 天<b>工期费用均不可索赔</b>。若是"异常恶劣天气"则只赔工期不赔费用——案例就考你区分这三档。</div>
+      </div>
+      <h4>4. 变更与签证</h4>
+      <p>变更指令必须是<mark>书面</mark>的；口头指令要在规定时间内要求书面确认。签证是索赔和结算的证据链，"及时、书面、有签字"六字诀。</p>
+      <h4>5. 担保（谁给谁出——方向别搞反）</h4>
+      <div class="tbl"><table>
+        <tr><th>担保</th><th>方向</th><th>备注</th></tr>
+        <tr><td>投标保证金</td><td>投标人 → 招标人</td><td>一般不超过投标总价 2%</td></tr>
+        <tr><td>履约担保</td><td>承包人 → 发包人</td><td>保证按合同履约</td></tr>
+        <tr><td>支付担保</td><td>发包人 → 承包人</td><td>保证按时付款（与履约担保对等）</td></tr>
+        <tr><td>预付款担保</td><td>承包人 → 发包人</td><td>保证预付款用于本工程</td></tr>
+      </table></div>
+      <div class="svgwrap"><svg viewBox="0 0 720 215" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+        <rect x="56" y="55" width="150" height="100" rx="10" fill="#fffdf8" stroke="#33302b" stroke-width="2"/>
+        <text x="131" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#33302b">发包人</text>
+        <text x="131" y="122" text-anchor="middle" font-size="11" fill="#6f675c">（建设单位）</text>
+        <rect x="514" y="55" width="150" height="100" rx="10" fill="#fffdf8" stroke="#33302b" stroke-width="2"/>
+        <text x="589" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#33302b">承包人</text>
+        <text x="589" y="122" text-anchor="middle" font-size="11" fill="#6f675c">（施工单位）</text>
+        <line x1="514" y1="68" x2="214" y2="68" stroke="#33302b" stroke-width="2"/><polygon points="214,64 206,68 214,72" fill="#33302b"/>
+        <text x="360" y="62" text-anchor="middle" font-size="11.5" fill="#33302b">投标保证金（不超估算价 2%）</text>
+        <line x1="514" y1="97" x2="214" y2="97" stroke="#33302b" stroke-width="2"/><polygon points="214,93 206,97 214,101" fill="#33302b"/>
+        <text x="360" y="91" text-anchor="middle" font-size="11.5" fill="#33302b">履约担保（不超合同价 10%）</text>
+        <line x1="514" y1="126" x2="214" y2="126" stroke="#33302b" stroke-width="2"/><polygon points="214,122 206,126 214,130" fill="#33302b"/>
+        <text x="360" y="120" text-anchor="middle" font-size="11.5" fill="#33302b">预付款担保</text>
+        <line x1="206" y1="146" x2="506" y2="146" stroke="#b5502f" stroke-width="2.5"/><polygon points="506,142 514,146 506,150" fill="#b5502f"/>
+        <text x="360" y="166" text-anchor="middle" font-size="11.5" fill="#b5502f" font-weight="bold">支付担保（与履约担保对等）</text>
+        <text x="360" y="200" text-anchor="middle" font-size="11.5" fill="#6f675c">三条向左都是承包人提供的；唯一向右的支付担保由发包人提供</text>
+      </svg></div>
+      <h4>6. 履行中的三大抗辩权（场景判断题）</h4>
+      <div class="tbl"><table>
+        <tr><th>抗辩权</th><th>适用场景</th></tr>
+        <tr><td>同时履行抗辩权</td><td>无先后顺序：你不履行，我有权拒绝履行</td></tr>
+        <tr><td>先履行抗辩权</td><td>对方<mark>应先履行而未履行</mark>：后履行方有权拒绝</td></tr>
+        <tr><td><mark>不安抗辩权</mark></td><td>应先履行方有确切证据证明对方<mark>丧失履行能力</mark>（经营恶化、转移财产）：可<mark>中止</mark>履行并通知，对方提供担保则恢复履行</td></tr>
+      </table></div>
+      <h4>7. 工程保险</h4>
+      <ul>
+        <li><mark>建筑工程一切险</mark>：保工程本身 + 现场材料设备，保险期限从开工（或材料运抵现场）至竣工验收；附加<mark>第三者责任险</mark>保对第三方的人身财产损害</li>
+        <li>安装工程一切险：以安装工程为主体的项目适用</li>
+        <li>投保人由合同约定（发包人或承包人），保险不免除各方的安全责任</li>
+      </ul>
+      <h4>8. 索赔证据清单（案例问"应提交哪些证据"）</h4>
+      <p><mark>施工日志</mark>（第一证据）、监理与业主的来往函件及指令、会议纪要、<mark>现场签证单</mark>、施工进度计划与实际记录、气象记录、影像资料、验收记录、采购凭证与财务票据、投标文件与合同文本。</p>
+      <div class="memo">证据口诀：日志函件会议纪，签证进度加天气，影像验收和票据。</div>
+      <h4>9. 缺陷责任期 vs 保修期（一对易混概念）</h4>
+      <div class="tbl"><table>
+        <tr><th></th><th>缺陷责任期</th><th>保修期</th></tr>
+        <tr><td>绑定对象</td><td><mark>质量保证金</mark>的预留与返还</td><td>保修<mark>义务</mark>的存续</td></tr>
+        <tr><td>期限</td><td>一般 1 年，最长不超 2 年</td><td>法定最低年限（防水 5 年、水电装修 2 年等，见法规科）</td></tr>
+        <tr><td>期满效果</td><td>返还质保金（不超结算总额 3%）</td><td>保修义务终止（地基主体是设计使用年限，实际"终身"）</td></tr>
+      </table></div>
+      <div class="trap">"缺陷责任期满 = 不用保修了"——错。质保金退了，法定保修义务还在跑。两条时间线互相独立。</div>
+      <div class="lec-done"><input type="checkbox" data-id="m6" class="lecdone">本章讲义已学完</div>
+    </div>
+  </details>
+
+  <!-- 第七章 -->
+  <details class="lec" id="lec-m7">
+    <summary><span class="lec-no">柒</span><span class="lec-t"><b>施工信息管理</b><small>分值少 · 快速过</small></span><span class="lec-stars">★☆☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>要点速览（本章分值最少，考前扫一遍即可）</h4>
+      <ul>
+        <li>信息管理的目的：通过有效的项目信息传输的组织和控制，为项目建设<mark>增值</mark></li>
+        <li>信息管理任务：信息管理手册（核心文件）、编码体系、信息处理平台</li>
+        <li>施工文件归档：施工过程资料同步收集整理；<mark>竣工图</mark>是归档重点（真实反映竣工实际）</li>
+        <li>工程档案验收：城建档案管理机构参与</li>
+        <li><mark>竣工图</mark>：必须真实反映工程竣工实际；一般性变更可在施工图上<mark>改绘</mark>并加盖竣工图章；结构形式、平面布置等<mark>重大改变的应重新绘制</mark></li>
+        <li>工程档案套数与移交按当地城建档案管理规定执行（通常含城建档案馆存档一套）</li>
+      </ul>
+      <div class="memo">本章策略：不投入整块时间，刷章节题遇到什么记什么。</div>
+      <div class="lec-done"><input type="checkbox" data-id="m7" class="lecdone">本章讲义已学完</div>
+    </div>
+  </details>
+</section>
+
+<!-- ════════════ 法规 ════════════ -->
+<section id="law">
+  <h2 class="page-title">建设工程法规及相关知识</h2>
+  <p class="page-lede">八章 · 记忆型科目 · 碎片时间学，考前两个月集中背。每章配"高频数字卡"，数字是法规选择题的命根子。</p>
+  <!-- 法规第一章 -->
+  <details class="lec" id="lec-f1">
+    <summary><span class="lec-no">壹</span><span class="lec-t"><b>建设工程基本法律知识</b><small>法律体系 · 代理 · 担保 · 保险 · 时效</small></span><span class="lec-stars">★★☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <div class="kp">法的效力层级：宪法 &gt; 法律 &gt; 行政法规 &gt; 部门规章 / 地方性法规。给两个文件比谁大是送分题（如《建筑法》是法律、《建设工程质量管理条例》是行政法规——条例听法）。</div>
+      <h4>代理（选择题常客）</h4>
+      <ul>
+        <li>委托代理、法定代理两类</li>
+        <li><mark>无权代理</mark>：未经追认对被代理人不发生效力</li>
+        <li><mark>表见代理</mark>：相对人有理由相信行为人有代理权（如拿着盖章空白合同）——代理行为<mark>有效</mark>，被代理人担责后可向行为人追偿。项目经理超权限签字常考表见代理</li>
+      </ul>
+      <h4>担保五方式（必考区分）</h4>
+      <div class="tbl"><table>
+        <tr><th>方式</th><th>关键特征</th></tr>
+        <tr><td>保证</td><td>第三人担保；一般保证 vs 连带责任保证（<mark>约定不明按一般保证</mark>）</td></tr>
+        <tr><td>抵押</td><td><mark>不转移占有</mark>（房、地、设备）</td></tr>
+        <tr><td>质押</td><td><mark>转移占有</mark>（动产、权利凭证）</td></tr>
+        <tr><td>留置</td><td><mark>法定担保</mark>，不用约定（承揽、运输、保管合同）</td></tr>
+        <tr><td>定金</td><td>不得超过主合同标的额 <mark>20%</mark>；双向罚则（给的不退、收的双倍返还）</td></tr>
+      </table></div>
+      <div class="memo">抵押不动、质押要动、留置法定、定金两成。</div>
+      <h4>债与诉讼时效</h4>
+      <ul>
+        <li>债的产生根据：合同（最主要）、侵权、无因管理、不当得利——给场景判类型（捡到建材归还要求付保管费=无因管理；多收工程款=不当得利）</li>
+        <li>普通诉讼时效 <mark>3 年</mark>（自知道或应当知道之日起）；最长 20 年</li>
+      </ul>
+      <h4>保险与知识产权</h4>
+      <ul>
+        <li>建筑工程一切险、安装工程一切险；<mark>意外伤害保险</mark>——为从事危险作业的人员办理</li>
+        <li>专利保护期：发明 20 年、实用新型 10 年、外观设计 15 年（自申请日起）</li>
+      </ul>
+      <div class="numcard">
+        <div><b>3 年</b>普通诉讼时效</div>
+        <div><b>20%</b>定金上限</div>
+        <div><b>20 年</b>发明专利保护期</div>
+      </div>
+      <h4>进阶：法人与建设用地</h4>
+      <ul>
+        <li>法人三分类：<mark>营利法人</mark>（公司——施工企业属这类）、<mark>非营利法人</mark>（事业单位、社会团体、基金会）、<mark>特别法人</mark>（机关法人、农村集体经济组织、基层群众性自治组织）</li>
+        <li>建设用地使用权：<mark>出让</mark>（有偿有期限）vs <mark>划拨</mark>（无偿、公益用途）</li>
+      </ul>
+      <div class="numcard">
+        <div><b>70 年</b>住宅用地出让最高年限</div>
+        <div><b>50 年</b>工业/综合用地</div>
+        <div><b>40 年</b>商业旅游娱乐用地</div>
+      </div>
+      <h4>进阶：担保细化</h4>
+      <ul>
+        <li>保证方式<mark>约定不明按一般保证</mark>（民法典规则，旧法相反——教材已按新规）；一般保证人享有<mark>先诉抗辩权</mark>（先起诉债务人执行不了才找保证人），连带保证无此待遇</li>
+        <li>保证期间约定不明：主债务履行期届满之日起 <mark>6 个月</mark></li>
+        <li>抵押：<mark>不动产抵押登记生效</mark>；动产抵押合同生效、未登记<mark>不得对抗善意第三人</mark></li>
+        <li>不得抵押的财产：土地所有权、学校医院等公益设施、所有权不明或有争议的财产等</li>
+      </ul>
+      <h4>进阶：意外伤害保险</h4>
+      <p>施工单位为从事<mark>危险作业</mark>的职工办理意外伤害保险的，保险费由<mark>施工单位支付</mark>，不得转嫁给职工；保险期限自开工至竣工验收合格。</p>
+      <div class="lec-done"><input type="checkbox" data-id="f1" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第二章 -->
+  <details class="lec" id="lec-f2">
+    <summary><span class="lec-no">贰</span><span class="lec-t"><b>施工许可法律制度</b><small>施工许可证 · 企业资质 · 注册执业</small></span><span class="lec-stars">★★☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>施工许可证（数字重灾区）</h4>
+      <div class="kp">申领主体是<mark>建设单位</mark>（不是施工单位）。主要条件：用地批准手续、规划许可证、施工图审查合格、已确定施工企业、<mark>建设资金已经落实</mark>等。</div>
+      <div class="numcard">
+        <div><b>50%</b>工期不足 1 年，到位资金占合同价比例</div>
+        <div><b>30%</b>工期 1 年以上，到位资金比例</div>
+        <div><b>3 个月</b>领证后应当开工的时限</div>
+        <div><b>2 次</b>延期开工次数上限（每次不超 3 个月）</div>
+        <div><b>1 个月</b>中止施工后向发证机关报告的时限</div>
+        <div><b>1 年</b>中止施工满 1 年恢复前需核验许可证</div>
+      </div>
+      <h4>企业资质与执业资格</h4>
+      <ul>
+        <li>资质序列：施工总承包、专业承包等；<mark>禁止无资质、超越资质承揽</mark>，禁止出借资质——相应合同无效</li>
+        <li>二级建造师注册有效期 <mark>3 年</mark>，届满前延续注册；未注册不得以建造师名义执业</li>
+        <li>安全生产许可证有效期 <mark>3 年</mark></li>
+      </ul>
+      <div class="trap">"施工单位办理施工许可证"——错，建设单位申领。"资质挂靠只是行规"——错，出借资质违法，合同无效且要处罚。</div>
+      <h4>进阶：不需要施工许可证的情形</h4>
+      <div class="kp">限额以下小型工程：工程投资额 <mark>30 万元以下</mark>或建筑面积 <mark>300 平方米以下</mark>（各地可调整幅度）；以及抢险救灾工程、临时性建筑、军用房屋建筑——单选高频，四种情形都要记。</div>
+      <h4>进阶：注册建造师执业细则</h4>
+      <ul>
+        <li>执业定位：担任建设工程项目<mark>施工的项目负责人</mark>；在施工管理文件上<mark>签字并加盖执业印章</mark>（签章后对文件承担相应责任）</li>
+        <li>不予注册的常见情形：不具有完全民事行为能力、刑罚执行完毕不满一定年限（以教材为准）、被吊销注册证书后年限未满等</li>
+        <li>注销注册情形：死亡或不具有完全民事行为能力、依法被撤销或吊销注册、本人申请等</li>
+        <li>注册证书遗失补办、变更注册（变更聘用单位应办理变更手续）；<mark>继续教育</mark>是延续注册的条件</li>
+        <li>未取得注册证书而以建造师名义执业：违法，所签文件无效力且面临处罚</li>
+      </ul>
+      <div class="trap">"项目上挂个证不去现场没关系"——错。人证合一是监管重点，签章即担责，出质量安全事故照样追究注册建造师责任，还会记入执业不良记录。</div>
+      <div class="lec-done"><input type="checkbox" data-id="f2" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第三章 -->
+  <details class="lec" id="lec-f3">
+    <summary><span class="lec-no">叁</span><span class="lec-t"><b>发承包法律制度</b><small>招投标 · 转包与违法分包（高频）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>必须招标的范围（国家规定项目）</h4>
+      <div class="numcard">
+        <div><b>400 万</b>施工单项合同估算价以上</div>
+        <div><b>200 万</b>重要设备、材料采购以上</div>
+        <div><b>100 万</b>勘察、设计、监理等服务以上</div>
+      </div>
+      <p class="dim" style="font-size:13px">适用于大型基础设施、公用事业、国有资金占控股或主导地位等项目，具体范围以教材为准。</p>
+      <h4>招投标程序数字线</h4>
+      <div class="numcard">
+        <div><b>20 日</b>招标文件发出至投标截止的最短时间</div>
+        <div><b>2%</b>投标保证金上限（占估算价）</div>
+        <div><b>10%</b>履约保证金上限（占中标合同金额）</div>
+        <div><b>30 日</b>中标通知书发出后订立书面合同</div>
+      </div>
+      <ul>
+        <li>开标：在投标截止的<mark>同一时间</mark>公开进行</li>
+        <li>低于成本报价、不响应实质性要求等应否决投标</li>
+        <li>中标通知书对双方有<mark>法律约束力</mark>，反悔要担责</li>
+        <li>联合体投标：按<mark>资质等级低</mark>的单位确定级别，对招标人承担<mark>连带责任</mark></li>
+      </ul>
+      <h4>转包与违法分包（案例+选择双高频）</h4>
+      <div class="tbl"><table>
+        <tr><th>行为</th><th>认定</th></tr>
+        <tr><td>转包</td><td>承包后<mark>全部</mark>转给他人，或<mark>肢解后以分包名义全部转出</mark>——一律禁止</td></tr>
+        <tr><td>违法分包</td><td>分包给无资质单位；未经建设单位认可分包；<mark>主体结构施工分包</mark>；分包单位<mark>再分包</mark></td></tr>
+        <tr><td>合法分包</td><td>总包可将<mark>非主体、非关键</mark>部分分包给有资质单位（劳务作业可再分包情形以教材为准）</td></tr>
+      </table></div>
+      <div class="memo">主体必须自己干；分包只能分一手；无资质谁都不能碰。</div>
+      <h4>进阶：招标方式与程序细节</h4>
+      <ul>
+        <li><mark>公开招标</mark>（发招标公告）vs <mark>邀请招标</mark>（向 <mark>3 个以上</mark>特定法人或组织发投标邀请书）；国有资金占控股或主导地位的依法必须招标项目<mark>应当公开招标</mark>（符合法定情形方可邀请招标）</li>
+        <li>资格预审（投标前审）与资格后审（开标后评标时审）</li>
+        <li>招标文件的澄清或修改：在投标截止时间至少 <mark>15 日前</mark>书面通知所有获取招标文件的潜在投标人；不足 15 日的，<mark>顺延投标截止时间</mark></li>
+        <li>投标文件：截止时间前送达并签收；截止前可以<mark>补充、修改或撤回</mark>；截止后撤销投标的，招标人可不退还投标保证金</li>
+        <li>评标委员会：<mark>5 人以上单数</mark>，其中技术、经济专家不得少于成员总数的 <mark>2/3</mark>；与投标人有利害关系的应当回避</li>
+        <li>中标候选人公示期不少于 <mark>3 日</mark></li>
+      </ul>
+      <h4>进阶："视为串通投标"五情形（高频必背）</h4>
+      <div class="kp">① 不同投标人的投标文件由<mark>同一单位或个人编制</mark>；② 委托<mark>同一单位或个人</mark>办理投标事宜；③ 投标文件载明的项目管理成员为同一人；④ 投标文件<mark>异常一致</mark>或报价呈<mark>规律性差异</mark>；⑤ 投标文件相互混装；（另：投标保证金从<mark>同一单位或个人账户</mark>转出）。——见到这些情形直接判"视为串通"，中标无效。</div>
+      <p>"属于串通"（有主观合意）：投标人之间协商报价、约定中标人、约定部分投标人放弃投标或中标等；招标人与投标人串通：开标前开启投标文件并泄露、泄露标底、授意撤换修改投标文件等。</p>
+      <div class="lec-done"><input type="checkbox" data-id="f3" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第四章 -->
+  <details class="lec" id="lec-f4">
+    <summary><span class="lec-no">肆</span><span class="lec-t"><b>合同和劳动合同法律制度</b><small>合同效力 · 违约 · 劳动合同与农民工工资</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>合同效力三分法</h4>
+      <div class="tbl"><table>
+        <tr><th>状态</th><th>典型情形</th></tr>
+        <tr><td><mark>无效</mark></td><td>违反法律强制性规定、恶意串通、虚假意思表示；建工特有：<mark>无资质/借用资质签的合同、必须招标而未招标</mark></td></tr>
+        <tr><td><mark>可撤销</mark></td><td>重大误解、欺诈、胁迫、显失公平——撤销权 <mark>1 年</mark>内行使</td></tr>
+        <tr><td>效力待定</td><td>限制行为能力人订立、无权代理订立（待追认）</td></tr>
+      </table></div>
+      <ul>
+        <li>违约责任：继续履行、采取补救措施、赔偿损失；约定违约金<mark>过分高于损失可请求调减</mark></li>
+        <li>合同无效但工程验收合格：承包人可<mark>参照合同关于折价补偿</mark>（原"参照约定支付工程价款"精神，表述以教材为准）</li>
+        <li><mark>实际施工人</mark>可在发包人<mark>欠付工程款范围内</mark>向其主张权利（突破合同相对性的特例）</li>
+      </ul>
+      <h4>劳动合同（数字题集中营）</h4>
+      <div class="tbl"><table>
+        <tr><th>合同期限</th><th>试用期上限</th></tr>
+        <tr><td>3 个月 – 不满 1 年</td><td>1 个月</td></tr>
+        <tr><td>1 年 – 不满 3 年</td><td>2 个月</td></tr>
+        <tr><td>3 年以上 / 无固定期限</td><td>6 个月</td></tr>
+      </table></div>
+      <ul>
+        <li>试用期工资：不低于转正工资的 <mark>80%</mark>，且不低于当地最低工资</li>
+        <li>同一用人单位与同一劳动者<mark>只能约定一次</mark>试用期；以完成一定任务为期限或期限不满 3 个月的<mark>不得约定试用期</mark></li>
+        <li>农民工工资：<mark>专用账户、总包代发、按月足额</mark>；拒不支付劳动报酬可入刑</li>
+        <li>劳动争议：<mark>仲裁前置</mark>（对仲裁不服才能诉讼），劳动仲裁时效 1 年</li>
+      </ul>
+      <div class="trap">劳动争议的"仲裁前置"与民商事仲裁"或裁或审"完全不同——建工合同纠纷的仲裁要有仲裁协议且一裁终局，劳动仲裁是法定前置程序。第八章还会碰到，先扎个桩。</div>
+      <h4>进阶：合同制度细化</h4>
+      <ul>
+        <li><mark>缔约过失责任</mark>：假借订立合同恶意磋商、故意隐瞒重要事实——赔偿对方的信赖利益损失（合同没成立也要赔）</li>
+        <li>格式条款：提供方未尽<mark>提示说明义务</mark>的免责条款，对方可主张不成为合同内容；理解有争议按<mark>不利于提供方</mark>解释</li>
+        <li>法定解除情形：不可抗力致合同目的不能实现、明确表示不履行主要债务、<mark>迟延履行经催告仍不履行</mark>、迟延履行或违约致合同目的不能实现</li>
+        <li>违约金与定金<mark>不能并用</mark>：对同一违约行为只能选择其一（选高的主张）</li>
+        <li>无效施工合同的工程款三档：验收<mark>合格</mark>→可参照合同折价补偿；不合格但<mark>修复后合格</mark>→可请求补偿（修复费用承包人担）；修复后仍不合格→<mark>不予支持</mark></li>
+      </ul>
+      <h4>进阶：劳动合同与工伤（数字高频区）</h4>
+      <ul>
+        <li>应订立<mark>无固定期限</mark>合同的情形：连续工作满 <mark>10 年</mark>；连续订立 <mark>2 次</mark>固定期限合同后续订等</li>
+        <li>经济补偿（合法解除）：每满一年支付一个月工资（俗称 N）；<mark>6 个月以上不满一年按一年算</mark>；不满 6 个月付半个月。违法解除赔偿金 = <mark>2 倍经济补偿</mark>（2N）</li>
+        <li>工伤"应当认定"核心：工作时间 + 工作场所 + 因工作原因；<mark>上下班途中非本人主要责任的交通事故</mark>也算</li>
+        <li>"视同工伤"：工作时间工作岗位<mark>突发疾病死亡或 48 小时内抢救无效死亡</mark>；抢险救灾等维护公共利益活动中受伤</li>
+      </ul>
+      <div class="numcard">
+        <div><b>10 年</b>连续工龄应签无固定期限</div>
+        <div><b>48 小时</b>视同工伤的抢救时限</div>
+        <div><b>2N</b>违法解除的赔偿金</div>
+        <div><b>1 年</b>劳动仲裁时效 / 可撤销合同撤销权</div>
+      </div>
+      <div class="lec-done"><input type="checkbox" data-id="f4" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第五章 -->
+  <details class="lec" id="lec-f5">
+    <summary><span class="lec-no">伍</span><span class="lec-t"><b>环境保护、节约能源和文物保护</b><small>分值少 · 记几个硬数字即可</small></span><span class="lec-stars">★☆☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <div class="numcard">
+        <div><b>70 dB</b>施工场界噪声限值 · 昼间</div>
+        <div><b>55 dB</b>施工场界噪声限值 · 夜间</div>
+        <div><b>22–6 时</b>夜间时段（禁超标噪声作业）</div>
+      </div>
+      <ul>
+        <li>因特殊需要必须夜间连续作业（如混凝土连续浇筑）：取得证明并<mark>公告附近居民</mark></li>
+        <li>中考、高考等特殊时段：禁止产生噪声污染的施工作业</li>
+        <li>扬尘防治：围挡、覆盖、洒水、车辆冲洗、场地硬化</li>
+        <li>建筑垃圾及时清运处置；危险废物交<mark>有资质单位</mark>处理</li>
+        <li>施工中<mark>发现文物</mark>：立即停止施工、保护现场、<mark>报告文物行政部门</mark>——不得私自处理或继续施工</li>
+        <li>新建建筑必须执行建筑节能强制性标准</li>
+      </ul>
+      <div class="trap">"发现疑似文物先挖出来看看再上报"——错，原地保护、立即停工、马上报告，一个步骤都不能少。</div>
+      <h4>进阶：环保制度补充</h4>
+      <ul>
+        <li>环境影响评价分类管理：影响重大编<mark>报告书</mark>、轻度影响编<mark>报告表</mark>、影响很小填<mark>登记表</mark></li>
+        <li>环保设施"<mark>三同时</mark>"：与主体工程同时设计、同时施工、同时投产使用</li>
+        <li>重污染天气预警：按应急要求<mark>停止土方作业、停止渣土运输</mark>等</li>
+        <li>危险废物转移执行<mark>联单</mark>制度；施工现场禁止焚烧各类废弃物</li>
+        <li>建筑垃圾：及时清运、分类处理、推进资源化利用</li>
+      </ul>
+      <div class="lec-done"><input type="checkbox" data-id="f5" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第六章 -->
+  <details class="lec" id="lec-f6">
+    <summary><span class="lec-no">陆</span><span class="lec-t"><b>安全生产法律制度</b><small>责任体系 · 事故等级与报告（必背）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <div class="kp">安全生产方针：<mark>安全第一、预防为主、综合治理</mark>。</div>
+      <h4>各方安全责任（判断"谁违法"）</h4>
+      <ul>
+        <li>建设单位：不得<mark>压缩合理工期</mark>、不得明示或暗示购买使用不合格安全防护用具、应提供地下管线资料</li>
+        <li>施工单位：对<mark>施工现场安全负责</mark>；主要负责人、项目负责人、专职安全员（安管三类人员）考核合格；安全生产费用<mark>专款专用</mark>（不得挪用，计入造价不参与竞争）</li>
+        <li>总分包：总包对现场安全<mark>负总责</mark>，分包不服从管理导致事故的承担主要责任；总分包对分包工程安全承担<mark>连带责任</mark></li>
+        <li>监理单位：发现安全隐患要求整改，情节严重要求<mark>暂停施工并报告建设单位</mark>；拒不整改的<mark>及时向主管部门报告</mark></li>
+      </ul>
+      <h4>事故等级与报告（和管理科第五章同一张表，必背）</h4>
+      <div class="numcard">
+        <div><b>3/10/30</b>死亡人数分界（一般/较大/重大/特重大）</div>
+        <div><b>10/50/100</b>重伤人数分界</div>
+        <div><b>1000万/5000万/1亿</b>直接经济损失分界</div>
+        <div><b>1 小时</b>单位负责人向主管部门报告时限</div>
+      </div>
+      <ul>
+        <li>危大工程专项施工方案 + 超规模专家论证（与管理科呼应）</li>
+        <li>特种作业人员持证上岗；新工人三级安全教育</li>
+        <li>为从事<mark>危险作业</mark>的人员办理意外伤害保险（费用由施工单位支付）</li>
+      </ul>
+      <h4>进阶：危大工程划分数字（以现行规定为准的稳定考点）</h4>
+      <div class="tbl"><table>
+        <tr><th>工程</th><th>属危大（编专项方案）</th><th>超危大（另加专家论证）</th></tr>
+        <tr><td>基坑</td><td>开挖深度 ≥ <mark>3 m</mark>（或虽不足 3m 但地质条件复杂）</td><td>开挖深度 ≥ <mark>5 m</mark></td></tr>
+        <tr><td>模板支撑（高支模）</td><td>搭设高度 ≥ <mark>5 m</mark> 等</td><td>搭设高度 ≥ <mark>8 m</mark> 等</td></tr>
+      </table></div>
+      <div class="kp">专项方案流程：施工单位组织编制 → <mark>施工单位技术负责人</mark>审核签字 → <mark>总监理工程师</mark>审查签字 → 超危大的组织<mark>专家论证</mark>（专家 5 名及以上，与本工程有利害关系者不得担任论证专家）。案例常让你挑"流程哪里错了"。</div>
+      <h4>进阶：安全生产许可证</h4>
+      <ul>
+        <li>有效期 <mark>3 年</mark>，届满前 <mark>3 个月</mark>申请延期；有效期内未发生死亡生产安全事故且符合条件的，经同意可<mark>不审查直接延期</mark>（细则以教材为准）</li>
+        <li>未取得安全生产许可证的，不得从事建筑施工活动</li>
+      </ul>
+      <h4>进阶：建设单位的安全禁令（案例挑错高频）</h4>
+      <ul>
+        <li>不得<mark>压缩合同约定的合理工期</mark>、不得要求低于成本价竞标</li>
+        <li>应向施工单位提供<mark>地下管线、气象水文、相邻建筑物</mark>等资料并保证真实准确</li>
+        <li>不得明示或暗示施工单位<mark>购买、租赁、使用不合格</mark>的安全防护用具、机械设备</li>
+        <li>装修装饰不得擅自变动<mark>房屋建筑主体和承重结构</mark></li>
+      </ul>
+      <div class="lec-done"><input type="checkbox" data-id="f6" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第七章 -->
+  <details class="lec" id="lec-f7">
+    <summary><span class="lec-no">柒</span><span class="lec-t"><b>质量法律制度</b><small>五方责任 · 竣工验收 · 保修期限（必背）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>施工单位的质量责任</h4>
+      <ul>
+        <li><mark>按图施工</mark>：不得擅自修改工程设计、不得偷工减料；发现图纸差错应<mark>及时提出意见和建议</mark></li>
+        <li>对建筑材料、构配件、设备<mark>进行检验</mark>；未经检验或检验不合格的不得使用</li>
+        <li><mark>见证取样</mark>：涉及结构安全的试块、试件及材料，在建设或监理单位人员见证下取样送检</li>
+        <li>对施工质量负责并实行<mark>质量保修制度</mark></li>
+      </ul>
+      <h4>竣工验收条件（案例判断"能不能验收"）</h4>
+      <ul>
+        <li>完成设计和合同约定的各项内容</li>
+        <li>有完整的技术档案和施工管理资料</li>
+        <li>有材料、设备的进场试验报告</li>
+        <li>有勘察、设计、施工、监理等单位签署的<mark>质量合格文件</mark></li>
+        <li>有施工单位签署的<mark>工程保修书</mark></li>
+      </ul>
+      <h4>最低保修期限（必背五档）</h4>
+      <div class="tbl"><table>
+        <tr><th>项目</th><th>最低保修期</th></tr>
+        <tr><td>地基基础、主体结构</td><td class="red">设计文件规定的合理使用年限</td></tr>
+        <tr><td>屋面防水、有防水要求的卫生间/房间/外墙面防渗漏</td><td class="red">5 年</td></tr>
+        <tr><td>供热与供冷系统</td><td class="red">2 个采暖期、供冷期</td></tr>
+        <tr><td>电气管线、给排水管道、设备安装和装修工程</td><td class="red">2 年</td></tr>
+        <tr><td>其他项目</td><td>由发包方与承包方约定</td></tr>
+      </table></div>
+      <div class="kp">保修期自<mark>竣工验收合格之日</mark>起计算。保修期内的质量问题：施工单位履行保修义务，费用由<mark>责任方</mark>承担（保修不等于免费包修）。</div>
+      <div class="memo">保修五档：地基主体管终身、防水五年、暖冷两期、水电装修两年、其余靠约定。</div>
+      <h4>进阶：建设单位与监理单位的质量责任（案例挑错库）</h4>
+      <ul>
+        <li>建设单位：不得<mark>肢解发包</mark>；不得任意压缩合理工期；不得明示暗示设计施工单位<mark>违反强制性标准、降低工程质量</mark>；施工图<mark>未经审查合格不得使用</mark>；按合同约定提供的原材料设备应保证质量</li>
+        <li>监理单位：与建设单位或施工单位<mark>串通</mark>弄虚作假、降低质量，或将不合格按合格签字的——承担相应赔偿或<mark>连带赔偿责任</mark></li>
+        <li>施工单位返修义务：施工中出现质量问题的、竣工验收不合格的，<mark>都应负责返修</mark>（先返修，费用再按责任划分——不是自己的责任也得先修）</li>
+      </ul>
+      <h4>进阶：备案与抢修</h4>
+      <div class="numcard">
+        <div><b>15 日</b>竣工验收合格之日起办理备案的时限</div>
+        <div><b>先抢修</b>涉及公共安全的紧急情况可先抢修后补手续</div>
+      </div>
+      <div class="lec-done"><input type="checkbox" data-id="f7" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+
+  <!-- 法规第八章 -->
+  <details class="lec" id="lec-f8">
+    <summary><span class="lec-no">捌</span><span class="lec-t"><b>解决建设工程纠纷法律制度</b><small>仲裁 vs 诉讼 · 管辖 · 时效</small></span><span class="lec-stars">★★☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>四种解决方式</h4>
+      <p>和解、调解、仲裁、诉讼。仲裁与诉讼是"二选一"关系：有<mark>有效仲裁协议</mark>的，法院不予受理（劳动争议除外——它是仲裁前置）。</p>
+      <h4>仲裁三大特点（选择题常客）</h4>
+      <ul>
+        <li><mark>自愿性</mark>：以双方有效的仲裁协议为前提；仲裁协议应约定明确的仲裁委员会</li>
+        <li><mark>一裁终局</mark>：裁决作出即生效，不能上诉；可依法申请撤销或不予执行</li>
+        <li><mark>不公开</mark>审理为原则（保护商业秘密）；仲裁协议具有独立性（合同无效不影响仲裁条款效力）</li>
+      </ul>
+      <h4>诉讼管辖（建工人必知）</h4>
+      <div class="kp">建设工程施工合同纠纷按<mark>不动产纠纷</mark>确定管辖——由<mark>工程所在地</mark>人民法院专属管辖（不能协议选别处）。</div>
+      <ul>
+        <li>民事诉讼实行<mark>两审终审</mark>；普通诉讼时效 3 年</li>
+        <li>证据的种类与保全；申请财产保全需提供担保（细节以教材为准）</li>
+      </ul>
+      <div class="numcard">
+        <div><b>3 年</b>普通诉讼时效</div>
+        <div><b>1 年</b>劳动仲裁时效</div>
+        <div><b>一裁终局</b>商事仲裁不能上诉</div>
+        <div><b>两审终审</b>民事诉讼制度</div>
+      </div>
+      <div class="trap">三个"仲裁"要分清：商事仲裁（或裁或审、一裁终局）、劳动仲裁（法定前置）、"仲裁协议独立性"（主合同无效仲裁条款仍有效）。考试就在这三处来回挖坑。</div>
+      <h4>进阶：程序数字线（这章的分全在数字上）</h4>
+      <div class="numcard">
+        <div><b>15 日</b>对一审判决的上诉期</div>
+        <div><b>10 日</b>对一审裁定的上诉期</div>
+        <div><b>6 个月</b>申请撤销仲裁裁决（自收到裁决书起）</div>
+        <div><b>30 日</b>诉前财产保全后不起诉则解除的时限</div>
+        <div><b>2 年</b>申请强制执行的期间</div>
+        <div><b>60 日</b>申请行政复议的期限</div>
+        <div><b>6 个月</b>提起行政诉讼的期限</div>
+      </div>
+      <ul>
+        <li>调解四类：人民调解、行政调解、仲裁中的调解、诉讼中的调解（司法调解）；调解书经双方签收后具有法律效力</li>
+        <li>仲裁裁决书<mark>自作出之日</mark>发生法律效力；仲裁开庭以<mark>不公开</mark>为原则；仲裁员有法定情形应回避</li>
+        <li>举证责任：<mark>谁主张、谁举证</mark>；逾期举证承担不利后果</li>
+        <li>对行政处罚不服：可复议（60 日）也可直接行政诉讼（6 个月）——两条路并行可选</li>
+      </ul>
+      <div class="trap">判决上诉 15 日、裁定上诉 10 日——"判十五、裁十"，单选年年换着马甲考。</div>
+      <div class="lec-done"><input type="checkbox" data-id="f8" class="lecdone">本章已学完</div>
+    </div>
+  </details>
+</section>
+
+<!-- ════════════ 实务 ════════════ -->
+<section id="prac">
+  <h2 class="page-title">建筑工程管理与实务</h2>
+  <p class="page-lede">四大块 · 占总时间 50% · 案例 4 大题为生死线。实务与新版教材强绑定，本页给知识框架与稳定考点；精讲以 2027 版教材 + 网课为准。</p>
+  <div class="note">实务精讲必须以 <b>2027 版教材 + 网课</b>为主线（技术参数与规范年年微调）。本页四大块给的是<b>知识框架 + 多年稳定的核心考点</b>，用于预习串联和考前回顾。</div>
+
+  <!-- 实务一 -->
+  <details class="lec" id="lec-s1">
+    <summary><span class="lec-no">壹</span><span class="lec-t"><b>建筑工程技术要求</b><small>构造 · 结构 · 材料（选择题大户）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>建筑分类（高度数字线）</h4>
+      <div class="numcard">
+        <div><b>27 m</b>住宅高层分界（超过为高层住宅）</div>
+        <div><b>24 m</b>公共建筑高层分界（单层除外）</div>
+        <div><b>100 m</b>超高层分界</div>
+      </div>
+      <h4>结构受力常识（理解型送分点）</h4>
+      <ul>
+        <li>荷载分类：<mark>永久荷载</mark>（结构自重等恒载）、<mark>可变荷载</mark>（人员、家具、风、雪等活载）、<mark>偶然荷载</mark>（爆炸、撞击）</li>
+        <li>混凝土抗压强、抗拉弱（抗拉约为抗压的 1/10），钢筋专职补拉——所以受弯构件<mark>受拉区</mark>必须配筋</li>
+        <li>梁、板是受弯构件：跨中下部受拉（钢筋在下）、支座上部受拉（负筋在上）</li>
+        <li><mark>悬挑构件（阳台、雨篷）上部受拉，受力钢筋在上面</mark>——施工中踩弯负筋是事故经典原因，选择与案例都爱考</li>
+      </ul>
+      <div class="memo">悬挑的筋在上面，踩塌阳台就是它。</div>
+      <div class="svgwrap"><svg viewBox="0 0 720 225" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+        <rect x="120" y="25" width="50" height="170" fill="#efe7d6" stroke="#33302b" stroke-width="2"/>
+        <text x="145" y="115" text-anchor="middle" font-size="12" fill="#6f675c" writing-mode="tb">墙 / 柱</text>
+        <rect x="170" y="95" width="330" height="28" fill="#fffdf8" stroke="#33302b" stroke-width="2"/>
+        <line x1="260" y1="55" x2="260" y2="87" stroke="#33302b" stroke-width="2"/><polygon points="256,87 260,95 264,87" fill="#33302b"/>
+        <line x1="350" y1="55" x2="350" y2="87" stroke="#33302b" stroke-width="2"/><polygon points="346,87 350,95 354,87" fill="#33302b"/>
+        <line x1="440" y1="55" x2="440" y2="87" stroke="#33302b" stroke-width="2"/><polygon points="436,87 440,95 444,87" fill="#33302b"/>
+        <text x="350" y="46" text-anchor="middle" font-size="12" fill="#33302b">荷载（人、堆物）</text>
+        <line x1="170" y1="95" x2="500" y2="95" stroke="#b5502f" stroke-width="4"/>
+        <line x1="178" y1="104" x2="492" y2="104" stroke="#b5502f" stroke-width="2" stroke-dasharray="10 4 2 4"/>
+        <text x="508" y="93" font-size="13" font-weight="bold" fill="#b5502f">上部受拉</text>
+        <text x="508" y="110" font-size="11.5" fill="#b5502f">受力钢筋在上（负筋）</text>
+        <text x="508" y="132" font-size="12" fill="#33302b">下部受压</text>
+        <path d="M170,123 Q400,133 498,165" fill="none" stroke="#8a8378" stroke-width="1.5" stroke-dasharray="6 5"/>
+        <circle cx="498" cy="165" r="3" fill="#8a8378"/>
+        <text x="508" y="170" font-size="11" fill="#6f675c">变形趋势（下挠）</text>
+        <text x="360" y="212" text-anchor="middle" font-size="11.5" fill="#b5502f">施工中踩弯 / 剪断负筋，悬挑根部开裂坠落——阳台雨篷事故的经典成因</text>
+      </svg></div>
+      <h4>常用材料关键点</h4>
+      <ul>
+        <li>水泥：通用硅酸盐水泥六大类；<mark>初凝时间不小于 45 min</mark>（保证有时间施工）、终凝时间上限因品种而异（以教材为准）；水泥受潮结块不得使用</li>
+        <li>混凝土强度等级：<mark>150mm 立方体、标准养护 28 天</mark>的抗压强度标准值（C30 的完整定义）</li>
+        <li>钢筋牌号：HPB300（光圆）、HRB400（带肋，主力受力筋）</li>
+        <li>防水材料：卷材（SBS 改性沥青、高分子）与涂料两大类；胎体、搭接是施工考点</li>
+        <li>砌体：块材强度等级 MU、砂浆强度等级 M</li>
+      </ul>
+      <h4>进阶：砌体抗震三件套（圈梁、构造柱、拉结筋）</h4>
+      <ul>
+        <li>作用：增强砌体结构的<mark>整体性与抗震能力</mark>（不是承重构件）</li>
+        <li>构造柱施工顺序：<mark>先砌墙、后浇柱</mark>；与墙体连接处砌成<mark>马牙槎，从柱脚开始先退后进</mark></li>
+        <li>沿墙高每 <mark>500mm</mark> 设 <mark>2φ6</mark> 拉结钢筋，每边伸入墙内不宜小于 <mark>1m</mark>（数字以教材为准）</li>
+      </ul>
+      <h4>进阶：变形缝三兄弟（区分题必考）</h4>
+      <div class="tbl"><table>
+        <tr><th>缝</th><th>解决什么</th><th>关键区别</th></tr>
+        <tr><td>伸缩缝（温度缝）</td><td>温度变化胀缩</td><td>基础<mark>可不断开</mark>（地下温度变化小）</td></tr>
+        <tr><td>沉降缝</td><td>不均匀沉降</td><td><mark>基础必须断开</mark>（从基础到屋顶全断）</td></tr>
+        <tr><td>防震缝</td><td>地震变形</td><td>基础可不断开；缝宽比伸缩缝大</td></tr>
+      </table></div>
+      <div class="memo">只有沉降缝连基础一起断——"沉到底"。</div>
+      <h4>进阶：六大水泥特性（匹配题经典表）</h4>
+      <div class="tbl"><table>
+        <tr><th>水泥</th><th>特性</th><th>适用 / 不适用</th></tr>
+        <tr><td>硅酸盐、普通硅酸盐</td><td><mark>早期强度高、水化热大</mark>、抗冻好、耐腐蚀差</td><td>适：快硬早强、冬期施工；<mark>不适大体积</mark>、不适腐蚀环境</td></tr>
+        <tr><td>矿渣水泥</td><td>耐热性好、泌水大抗渗差</td><td>适：高温车间、耐热工程</td></tr>
+        <tr><td>火山灰水泥</td><td><mark>抗渗性好</mark></td><td>适：有抗渗要求的工程</td></tr>
+        <tr><td>粉煤灰水泥</td><td>干缩小、<mark>抗裂性好</mark>、后期强度增长快</td><td>适：大体积、承载较晚的工程</td></tr>
+      </table></div>
+      <div class="kp">掺混合材"三兄弟"（矿渣/火山灰/粉煤灰）共性：早期强度低、后期增长快、<mark>水化热小（适大体积）</mark>、耐腐蚀好、抗冻性差——与硅酸盐系正好互补，匹配题按这个对偶关系秒解。</div>
+      <h4>进阶：钢筋与外加剂</h4>
+      <ul>
+        <li>钢筋力学性能四指标：<mark>屈服强度</mark>（设计取值依据）、抗拉强度、伸长率、冷弯性能；HRB400 的 400 = 屈服强度标准值 400MPa</li>
+        <li>外加剂匹配：减水剂（省水提强）、早强剂（冬期抢工）、<mark>缓凝剂</mark>（大体积、高温运输远）、引气剂（抗冻）、防冻剂（负温）、膨胀剂（补偿收缩、后浇带）</li>
+      </ul>
+      <div class="lec-done"><input type="checkbox" data-id="s1" class="lecdone">本块已学完</div>
+    </div>
+  </details>
+
+  <!-- 实务二 -->
+  <details class="lec" id="lec-s2">
+    <summary><span class="lec-no">贰</span><span class="lec-t"><b>专项施工技术</b><small>地基基础 · 主体结构 · 防水装饰（案例背景库）</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>地基与基础</h4>
+      <div class="kp">土方开挖十六字诀：<mark>开槽支撑、先撑后挖、分层开挖、严禁超挖</mark>。案例背景一旦出现"一挖到底""超挖后回填虚土"就是找你挑错。</div>
+      <ul>
+        <li>基坑开挖到设计标高后组织<mark>验槽</mark>（勘察、设计、建设、监理、施工五方参加）</li>
+        <li>基坑降水（明沟排水、井点降水）；回填土<mark>分层夯实</mark>并取样检测</li>
+      </ul>
+      <h4>钢筋与模板</h4>
+      <ul>
+        <li>钢筋连接三法：绑扎搭接、机械连接、焊接；受力钢筋接头位置<mark>相互错开</mark>、宜设在受力较小处</li>
+        <li>钢筋隐蔽验收：浇筑混凝土前必须完成（品种、规格、数量、位置、保护层）</li>
+      </ul>
+      <div class="kp">底模拆除的混凝土强度要求（背这张表）：跨度 ≤2m → ≥50% 设计强度；2–8m → ≥75%；<mark>＞8m 及悬挑构件 → 100%</mark>。侧模：强度能保证表面及棱角不受损伤即可拆。</div>
+      <div class="svgwrap"><svg viewBox="0 0 720 130" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+        <text x="60" y="30" font-size="13" font-weight="bold" fill="#33302b">底模拆除所需混凝土强度（占设计强度）</text>
+        <rect x="60" y="48" width="180" height="40" fill="#8a6d1f" opacity=".22" stroke="#8a6d1f"/>
+        <text x="150" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#8a6d1f">≥50%</text>
+        <rect x="240" y="48" width="240" height="40" fill="#b5502f" opacity=".3" stroke="#b5502f"/>
+        <text x="360" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#b5502f">≥75%</text>
+        <rect x="480" y="48" width="180" height="40" fill="#b5502f" opacity=".62" stroke="#b5502f"/>
+        <text x="570" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#fffdf8">100%</text>
+        <line x1="60" y1="88" x2="660" y2="88" stroke="#33302b" stroke-width="1.5"/>
+        <line x1="240" y1="88" x2="240" y2="95" stroke="#33302b" stroke-width="1.5"/>
+        <line x1="480" y1="88" x2="480" y2="95" stroke="#33302b" stroke-width="1.5"/>
+        <text x="150" y="110" text-anchor="middle" font-size="12" fill="#6f675c">跨度 ≤2m</text>
+        <text x="360" y="110" text-anchor="middle" font-size="12" fill="#6f675c">2 ～ 8m</text>
+        <text x="570" y="110" text-anchor="middle" font-size="12" fill="#6f675c">＞8m 及悬挑构件</text>
+      </svg></div>
+      <h4>混凝土工程</h4>
+      <ul>
+        <li>浇筑：分层浇筑分层振捣，控制自由倾落高度（过高会离析）</li>
+        <li>施工缝留设原则：留在<mark>结构受力（剪力）较小且便于施工</mark>的部位；柱留在基础顶面、梁的下面等；有主次梁楼盖<mark>顺次梁方向浇筑，施工缝留在次梁跨中 1/3 范围</mark></li>
+        <li>养护：覆盖浇水一般<mark>不少于 7 天</mark>，掺缓凝剂或有抗渗要求的<mark>不少于 14 天</mark></li>
+        <li>冬期施工界定：连续 5 天平均气温<mark>低于 5 摄氏度</mark></li>
+        <li>大体积混凝土：控制水化热温升、内外温差（防裂），测温是案例常考背景</li>
+      </ul>
+      <h4>砌体与防水</h4>
+      <ul>
+        <li>砌筑"三一法"：一铲灰、一块砖、一挤揉；转角与交接处<mark>同时砌筑</mark>，不能同时砌的留<mark>斜槎</mark>（普通砖墙斜槎水平投影长度不小于高度的 2/3）</li>
+        <li>每日砌筑高度有限制（约一步架高，具体数字以教材为准）；填充墙砌至梁板底附近停歇后再补砌顶紧</li>
+        <li>屋面防水：先找坡找平再防水，卷材搭接顺水流方向；细部节点（阴阳角、落水口）附加层是通病高发区</li>
+        <li>室内防水：卫生间蓄水试验（验收必做）</li>
+      </ul>
+      <div class="trap">案例背景里"雨天浇筑混凝土未采取措施""养护 3 天就上人施工""填充墙一天砌到梁底并立即塞顶"都是标准错误点——见到就写"不妥，正确做法是……"。</div>
+      <h4>进阶：基坑支护与降水选型</h4>
+      <div class="tbl"><table>
+        <tr><th>支护形式</th><th>特点与适用</th></tr>
+        <tr><td>土钉墙</td><td>浅基坑、造价低（软土慎用）</td></tr>
+        <tr><td>排桩</td><td>较深基坑主力（可加内支撑或锚杆）</td></tr>
+        <tr><td>地下连续墙</td><td>深基坑、止水好、造价高、可两墙合一</td></tr>
+        <tr><td>水泥土搅拌桩（重力式）</td><td>软土浅坑，兼止水帷幕</td></tr>
+      </table></div>
+      <p>降水方法：集水明排（浅、水量小）、轻型井点、管井井点（深、水量大）；<mark>降水会引起周边地面沉降</mark>，需设回灌等措施保护邻近建筑——案例常考"周边楼房开裂原因"。</p>
+      <h4>进阶：桩基施工</h4>
+      <div class="memo">预制桩打桩顺序口诀：<mark>先深后浅、先大后小、先长后短</mark>；密集群桩<mark>从中间向四周（或向两侧）</mark>对称施打。</div>
+      <p>灌注桩常见质量问题：<mark>断桩、缩颈、夹泥、沉渣超标</mark>——成孔后清孔、控制混凝土连续浇筑是关键（案例问"事故原因分析"的素材）。</p>
+      <h4>进阶：钢筋与混凝土工程细则</h4>
+      <ul>
+        <li>钢筋进场：按批检验（出厂合格证 + 外观 + <mark>力学性能抽样复验</mark>），合格后方可使用</li>
+        <li>钢筋代换：必须经<mark>原设计单位同意</mark>并办理变更文件——施工单位擅自代换是案例标准错误点</li>
+        <li>施工缝继续浇筑处理三步：<mark>剔凿清理</mark>（去浮浆松动石子）→ <mark>湿润</mark>（提前浇水，无积水）→ 接浆后浇筑；已浇混凝土强度达 <mark>1.2MPa</mark> 后才可继续浇筑施工缝</li>
+        <li>后浇带：收缩后浇带宜在两侧混凝土<mark>龄期达 42 天</mark>后浇筑（沉降后浇带待沉降基本稳定后），用<mark>比两侧高一强度等级</mark>的补偿收缩混凝土——高频考点</li>
+        <li>大体积混凝土：<mark>里表温差不宜大于 25 摄氏度</mark>；分层浇筑或推移式连续浇筑；覆盖保温保湿养护并测温</li>
+      </ul>
+      <h4>进阶：砌体与脚手架数字</h4>
+      <div class="numcard">
+        <div><b>8–12 mm</b>砌体灰缝厚度（宽度）</div>
+        <div><b>80%</b>水平灰缝砂浆饱满度下限</div>
+        <div><b>2/3</b>斜槎水平投影长度 ≥ 高度的比值</div>
+        <div><b>24 m</b>双排脚手架此高度以上剪刀撑须外侧全立面连续设置</div>
+      </div>
+      <ul>
+        <li>连墙件：随架体同步设置，<mark>严禁施工期间任意拆除</mark>；脚手架分段验收合格挂牌后使用</li>
+        <li>不能同时砌筑处留<mark>斜槎</mark>；确有困难非抗震设防处可留直槎但必须加拉结筋（<mark>阳角处不得留直槎</mark>，细则以教材为准）</li>
+      </ul>
+      <h4>进阶：防水与装饰细则</h4>
+      <ul>
+        <li>屋面泛水高度不小于 <mark>250mm</mark>；防水完成后做<mark>蓄水（24h）或淋水试验</mark>；卫生间蓄水试验 <mark>24 小时</mark>无渗漏方可下道工序</li>
+        <li>保护层施工不得破坏已完防水层（渗漏案例的高频原因）</li>
+        <li>抹灰分层进行（底、中、面），每层不宜过厚，防空鼓开裂；基层清理并浇水湿润</li>
+        <li>吊顶：<mark>重型灯具、电扇严禁安装在吊顶龙骨上</mark>，应另设吊钩直接吊于结构——单选与案例双料常客</li>
+      </ul>
+      <div class="lec-done"><input type="checkbox" data-id="s2" class="lecdone">本块已学完</div>
+    </div>
+  </details>
+
+  <!-- 实务三 -->
+  <details class="lec" id="lec-s3">
+    <summary><span class="lec-no">叁</span><span class="lec-t"><b>项目施工管理</b><small>案例主战场 · 与管理科联动</small></span><span class="lec-stars">★★★</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <h4>本块与管理科的关系</h4>
+      <p>进度（网络图计算）、成本（赢得值）、质量（验收组织）、安全（危大工程、事故等级）、合同（索赔三要件）在这里<mark>换成建筑工程场景重考一遍</mark>——管理科学扎实，这块就是自动复习。</p>
+      <h4>建筑特色考点</h4>
+      <ul>
+        <li>施工组织设计：由项目负责人主持编制、<mark>施工单位技术负责人审批</mark>；专项方案（危大工程）另行编审，超规模的组织<mark>专家论证</mark></li>
+        <li>施工现场平面布置：塔吊覆盖与安全距离、临时道路环形布置、材料堆场靠近使用地点、办公生活区与作业区分开</li>
+        <li>临时用电：TN-S 系统（三相五线）、"三级配电两级保护"、"一机一闸一漏一箱"</li>
+        <li>季节性施工：冬期（掺外加剂、覆盖保温、测温）、雨期（排水、防雷、基坑防泡槽）</li>
+        <li>现场消防、绿色施工与扬尘控制</li>
+      </ul>
+      <h4>案例答题四步法（从强化轮开始每周练）</h4>
+      <ol>
+        <li><mark>先读问题</mark>再读背景——带着问题找信息，效率翻倍</li>
+        <li>背景里的每句"异常描述"都是采分点（时间、数字、做法、程序）</li>
+        <li>答"不妥之处"用固定句式：指出不妥 + 写出<mark>正确做法</mark>，一条一分开列</li>
+        <li>用<mark>教材术语</mark>作答（写"分层浇筑、分层振捣"而不是"慢慢浇"），字迹工整分条列项</li>
+      </ol>
+      <div class="memo">案例判分是"踩点给分"——多写对的点不扣分，漏点必丢分。宁可条数多，不可漏要点。</div>
+      <h4>进阶：技术交底与安全交底</h4>
+      <ul>
+        <li>技术交底分级：施工组织设计交底 → 专项方案交底 → 分项工程技术交底，逐级到班组</li>
+        <li><mark>安全技术交底</mark>：分部分项工程施工前进行，<mark>书面交底、双方签字确认</mark>留存——案例背景"口头交底了一下"就是错误点</li>
+      </ul>
+      <h4>进阶：临时用电硬数字（TN-S 体系）</h4>
+      <div class="numcard">
+        <div><b>三级配电</b>总配电箱 → 分配电箱 → 开关箱</div>
+        <div><b>两级保护</b>漏电保护器设在总箱 + 开关箱</div>
+        <div><b>3 m</b>开关箱与用电设备最大距离</div>
+        <div><b>30 m</b>分配电箱与开关箱最大距离</div>
+      </div>
+      <p>"一机、一闸、一漏、一箱"：每台设备有自己的开关箱，严禁一闸多机——数字与口号都是选择题常客。</p>
+      <h4>进阶：高处作业与起重防护</h4>
+      <ul>
+        <li>临边防护栏杆：上杆高度约 <mark>1.2m</mark>（横杆两道，挂密目安全网，数字以现行规范为准）；洞口按尺寸分级防护（盖板 / 栏杆 + 安全网）</li>
+        <li>安全带<mark>高挂低用</mark>；安全帽下颌带系紧——"低挂高用"是标准错误选项</li>
+        <li><mark>六级及以上大风</mark>：停止起重吊装与高处作业；雨雪后先检查再复工</li>
+        <li>塔吊：安装拆卸由<mark>有相应资质的单位</mark>实施，安拆前编专项方案；群塔作业防碰撞措施；卸料平台独立设置、限载标牌</li>
+        <li>现场动火实行<mark>分级审批</mark>制度（级别越高审批层级越高），动火证 + 看火人 + 灭火器材缺一不可</li>
+      </ul>
+      <h4>进阶：季节性施工要点</h4>
+      <ul>
+        <li>冬期（连续 5 天平均气温低于 5 摄氏度）：混凝土掺防冻剂、覆盖保温、<mark>测温记录</mark>；砂浆混凝土不得使用已冻结材料</li>
+        <li>雨期：基坑<mark>防泡槽</mark>（排水沟集水井）、边坡防坍塌、机电设备防雷防漏电、材料防潮</li>
+      </ul>
+      <div class="lec-done"><input type="checkbox" data-id="s3" class="lecdone">本块已学完</div>
+    </div>
+  </details>
+
+  <!-- 实务四 -->
+  <details class="lec" id="lec-s4">
+    <summary><span class="lec-no">肆</span><span class="lec-t"><b>相关法规与标准</b><small>与法规科联动 · 专业规范要点</small></span><span class="lec-stars">★★☆</span><span class="lec-arrow">▶</span></summary>
+    <div class="lec-body">
+      <ul>
+        <li>与法规科重叠：施工许可、发承包禁令、安全质量责任、保修期限——在建筑场景下重考，法规科背熟即得分</li>
+        <li>验收规范体系：《建筑工程施工质量验收统一标准》（GB 50300）统领各专业验收规范；检验批→分项→分部→单位的划分依据在此</li>
+        <li>室内环境污染控制：民用建筑工程竣工<mark>验收前</mark>进行室内环境污染物浓度检测（甲醛、氡等）</li>
+        <li>节能工程：围护结构节能是分部工程，专项验收</li>
+      </ul>
+      <div class="memo">本块策略：不单独投入大块时间，跟着真题查漏，与法规科联动记忆。</div>
+      <h4>进阶：建筑工程十大分部（背下来，验收与案例都用）</h4>
+      <div class="kp"><mark>地基与基础、主体结构</mark>、建筑装饰装修、屋面、建筑给水排水及供暖、通风与空调、建筑电气、智能建筑、<mark>建筑节能</mark>、电梯——共 10 个分部。其中地基与基础、主体结构的验收要求最严（勘察设计参加，见管理科第四章）。</div>
+      <h4>进阶：室内环境污染控制（数字题）</h4>
+      <ul>
+        <li>检测五项污染物：<mark>氡、甲醛、氨、苯、TVOC</mark>（现行标准还含甲苯二甲苯，以教材为准）</li>
+        <li>检测时机：装饰装修完工<mark>至少 7 天后</mark>、工程<mark>使用前</mark>进行</li>
+        <li>建筑分类：Ⅰ类（住宅、医院病房、学校教室、幼儿园等）限值严于 Ⅱ 类（办公楼、商店、旅馆等）——"医院学校管得严"好理解好记</li>
+        <li>检测不合格的房间<mark>不得投入使用</mark></li>
+      </ul>
+      <div class="numcard">
+        <div><b>10 个</b>建筑工程分部数量</div>
+        <div><b>7 天</b>装修完工后至检测的最短间隔</div>
+        <div><b>15 日</b>竣工验收后备案时限（呼应法规科）</div>
+      </div>
+      <div class="lec-done"><input type="checkbox" data-id="s4" class="lecdone">本块已学完</div>
+    </div>
+  </details>
+</section>
+
+<!-- ════════════ 扫盲 ════════════ -->
+<section id="base">
+  <h2 class="page-title">零基础扫盲手册</h2>
+  <p class="page-lede">扫盲期阅读，配合 B 站施工动画。目标：看到教材名词不发懵。</p>
+
+  <div class="card">
+    <h3>心智模型：工程项目 ≈ 软件项目</h3>
+    <div class="tbl"><table>
+      <tr><th>工程世界</th><th>你熟悉的世界</th></tr>
+      <tr><td>建设单位（甲方/业主）</td><td>金主/产品方：出钱、提需求、验收</td></tr>
+      <tr><td>勘察单位</td><td>可行性调研：查地质</td></tr>
+      <tr><td>设计单位</td><td>出详细设计的架构组：产出施工图</td></tr>
+      <tr><td>施工单位（乙方）</td><td>开发团队；<mark>项目经理=Tech Lead，二建证就是这个岗位的执业资格</mark></td></tr>
+      <tr><td>监理单位</td><td>QA + Code Review：盯质量安全进度</td></tr>
+      <tr><td>设计变更/签证</td><td>需求变更单：书面记录=结算索赔证据</td></tr>
+      <tr><td>竣工验收</td><td>UAT：五方签字</td></tr>
+    </table></div>
+    <p class="dim" style="font-size:12.5px">类比帮入门，答题用教材术语。</p>
+  </div>
+
+  <div class="card">
+    <h3>一栋楼的主流程</h3>
+    <p class="mono" style="font-size:13.5px;line-height:2.1">前期：拿地 → 勘察 → 设计出图 → 报建审批 → 招投标<br>施工：三通一平 → 基础工程 → 主体结构 → 砌体围护 → 屋面防水 → 装饰装修+机电安装（穿插）<br>收尾：竣工验收 → 备案 → 交付（保修期开始）</p>
+    <div class="kp">主体每层循环：绑钢筋 → 支模板 → 浇混凝土 → 养护 → 拆模 → 上一层。这是实务施工技术的叙事主线。</div>
+    <div class="svgwrap"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+      <rect x="25" y="28" width="118" height="42" rx="8" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="84" y="54" text-anchor="middle" font-size="14" fill="#33302b">绑钢筋</text>
+      <rect x="163" y="28" width="118" height="42" rx="8" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="222" y="54" text-anchor="middle" font-size="14" fill="#33302b">支模板</text>
+      <rect x="301" y="28" width="118" height="42" rx="8" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="360" y="54" text-anchor="middle" font-size="14" fill="#33302b">浇混凝土</text>
+      <rect x="439" y="28" width="118" height="42" rx="8" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="498" y="54" text-anchor="middle" font-size="14" fill="#33302b">养护</text>
+      <rect x="577" y="28" width="118" height="42" rx="8" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/><text x="636" y="54" text-anchor="middle" font-size="14" fill="#33302b">拆模</text>
+      <line x1="143" y1="49" x2="155" y2="49" stroke="#33302b" stroke-width="2"/><polygon points="155,44 163,49 155,54" fill="#33302b"/>
+      <line x1="281" y1="49" x2="293" y2="49" stroke="#33302b" stroke-width="2"/><polygon points="293,44 301,49 293,54" fill="#33302b"/>
+      <line x1="419" y1="49" x2="431" y2="49" stroke="#33302b" stroke-width="2"/><polygon points="431,44 439,49 431,54" fill="#33302b"/>
+      <line x1="557" y1="49" x2="569" y2="49" stroke="#33302b" stroke-width="2"/><polygon points="569,44 577,49 569,54" fill="#33302b"/>
+      <path d="M636,70 L636,108 L84,108 L84,78" fill="none" stroke="#b5502f" stroke-width="1.5" stroke-dasharray="6 5"/>
+      <polygon points="79,80 84,70 89,80" fill="#b5502f"/>
+      <text x="360" y="126" text-anchor="middle" font-size="12.5" fill="#b5502f">完成一层，回到起点砌上一层，循环到封顶</text>
+    </svg></div>
+  </div>
+
+  <div class="card">
+    <h3>高频名词脱盲卡</h3>
+    <h5 style="color:var(--brick);margin:8px 0 6px">地基与基础</h5>
+    <div class="term-grid">
+      <div class="term"><b>地基 vs 基础</b>地基是土（承载建筑的土层），基础是结构构件（埋在土里的混凝土部分），考试严格区分</div>
+      <div class="term"><b>独立基础</b>一根柱子下一个墩子，低层框架常用</div>
+      <div class="term"><b>条形基础</b>墙下一条混凝土长条，砖混常用</div>
+      <div class="term"><b>筏板基础</b>整栋楼下一块大板，像船筏，高层常用</div>
+      <div class="term"><b>桩基础</b>打桩深入好土层，软土/超高层用</div>
+    </div>
+    <div class="svgwrap"><svg viewBox="0 0 720 235" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+      <rect x="0" y="60" width="720" height="140" fill="#efe7d6" opacity=".55"/>
+      <line x1="0" y1="60" x2="720" y2="60" stroke="#8a8378" stroke-width="1.5" stroke-dasharray="8 6"/>
+      <text x="8" y="52" font-size="11" fill="#8a8378">地面</text>
+      <line x1="540" y1="188" x2="720" y2="188" stroke="#b5a26d" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="712" y="182" font-size="11" fill="#b5a26d" text-anchor="end">坚硬持力层</text>
+      <line x1="180" y1="15" x2="180" y2="205" stroke="#e2d9c8"/><line x1="360" y1="15" x2="360" y2="205" stroke="#e2d9c8"/><line x1="540" y1="15" x2="540" y2="205" stroke="#e2d9c8"/>
+      <rect x="80" y="25" width="22" height="62" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/>
+      <polygon points="62,87 120,87 132,120 50,120" fill="#f6e3da" stroke="#b5502f" stroke-width="2"/>
+      <text x="91" y="222" text-anchor="middle" font-size="13" fill="#33302b">独立基础（柱下墩）</text>
+      <rect x="252" y="25" width="36" height="62" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/>
+      <rect x="234" y="87" width="72" height="30" fill="#f6e3da" stroke="#b5502f" stroke-width="2"/>
+      <text x="270" y="222" text-anchor="middle" font-size="13" fill="#33302b">条形基础（墙下条）</text>
+      <rect x="404" y="32" width="18" height="58" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/>
+      <rect x="478" y="32" width="18" height="58" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/>
+      <rect x="384" y="90" width="132" height="26" fill="#f6e3da" stroke="#b5502f" stroke-width="2"/>
+      <text x="450" y="222" text-anchor="middle" font-size="13" fill="#33302b">筏板基础（整块大板）</text>
+      <rect x="620" y="25" width="20" height="58" fill="#fffdf8" stroke="#33302b" stroke-width="1.5"/>
+      <rect x="576" y="83" width="108" height="26" fill="#f6e3da" stroke="#b5502f" stroke-width="2"/>
+      <rect x="592" y="109" width="14" height="80" fill="#f6e3da" stroke="#b5502f" stroke-width="1.5"/>
+      <rect x="654" y="109" width="14" height="80" fill="#f6e3da" stroke="#b5502f" stroke-width="1.5"/>
+      <text x="630" y="222" text-anchor="middle" font-size="13" fill="#33302b">桩基础（扎进好土层）</text>
+    </svg></div>
+    <h5 style="color:var(--brick);margin:14px 0 6px">结构体系</h5>
+    <div class="term-grid">
+      <div class="term"><b>砖混结构</b>砖墙承重+混凝土楼板，老式多层住宅</div>
+      <div class="term"><b>框架结构</b>柱梁骨架承重，墙只是填充，办公楼常用</div>
+      <div class="term"><b>剪力墙结构</b>钢筋混凝土墙承重抗侧力，高层住宅主流</div>
+      <div class="term"><b>承重墙 vs 填充墙</b>承重墙动不得；装修砸墙只能砸填充墙</div>
+      <div class="term"><b>现浇 vs 装配式</b>现场浇混凝土 / 工厂预制现场拼装（政策方向）</div>
+    </div>
+    <div class="svgwrap"><svg viewBox="0 0 720 205" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei,sans-serif">
+      <line x1="240" y1="15" x2="240" y2="175" stroke="#e2d9c8"/><line x1="480" y1="15" x2="480" y2="175" stroke="#e2d9c8"/>
+      <rect x="48" y="30" width="18" height="130" fill="#f6e3da" stroke="#b5502f" stroke-width="2"/>
+      <rect x="174" y="30" width="18" height="130" fill="#f6e3da" stroke="#b5502f" stroke-width="2"/>
+      <line x1="48" y1="30" x2="192" y2="30" stroke="#33302b" stroke-width="3"/>
+      <line x1="66" y1="73" x2="174" y2="73" stroke="#33302b" stroke-width="3"/>
+      <line x1="66" y1="116" x2="174" y2="116" stroke="#33302b" stroke-width="3"/>
+      <line x1="48" y1="160" x2="192" y2="160" stroke="#33302b" stroke-width="3"/>
+      <text x="120" y="188" text-anchor="middle" font-size="12.5" fill="#33302b">砖混：砖墙承重（红）</text>
+      <line x1="300" y1="30" x2="300" y2="160" stroke="#33302b" stroke-width="5"/>
+      <line x1="360" y1="30" x2="360" y2="160" stroke="#33302b" stroke-width="5"/>
+      <line x1="420" y1="30" x2="420" y2="160" stroke="#33302b" stroke-width="5"/>
+      <line x1="298" y1="30" x2="422" y2="30" stroke="#33302b" stroke-width="4"/>
+      <line x1="298" y1="73" x2="422" y2="73" stroke="#33302b" stroke-width="4"/>
+      <line x1="298" y1="116" x2="422" y2="116" stroke="#33302b" stroke-width="4"/>
+      <line x1="298" y1="160" x2="422" y2="160" stroke="#33302b" stroke-width="4"/>
+      <text x="360" y="188" text-anchor="middle" font-size="12.5" fill="#33302b">框架：柱梁承重，墙可拆</text>
+      <rect x="544" y="30" width="22" height="130" fill="#b5502f" opacity=".3" stroke="#b5502f" stroke-width="2"/>
+      <rect x="634" y="30" width="22" height="130" fill="#b5502f" opacity=".3" stroke="#b5502f" stroke-width="2"/>
+      <line x1="544" y1="30" x2="656" y2="30" stroke="#33302b" stroke-width="3"/>
+      <line x1="566" y1="73" x2="634" y2="73" stroke="#33302b" stroke-width="3"/>
+      <line x1="566" y1="116" x2="634" y2="116" stroke="#33302b" stroke-width="3"/>
+      <line x1="544" y1="160" x2="656" y2="160" stroke="#33302b" stroke-width="3"/>
+      <text x="600" y="188" text-anchor="middle" font-size="12.5" fill="#33302b">剪力墙：混凝土墙承重</text>
+    </svg></div>
+    <h5 style="color:var(--brick);margin:14px 0 6px">混凝土与钢筋</h5>
+    <div class="term-grid">
+      <div class="term"><b>C30</b>混凝土强度等级，数字=立方体抗压强度标准值(MPa)</div>
+      <div class="term"><b>坍落度</b>混凝土稀稠度指标</div>
+      <div class="term"><b>养护</b>浇完保湿保温慢慢变硬，不养护会裂会掉强度</div>
+      <div class="term"><b>试块</b>浇筑时留的样品送实验室测强度（质量证据）</div>
+      <div class="term"><b>钢筋保护层</b>钢筋外必须裹的混凝土厚度，防锈防火</div>
+      <div class="term"><b>模板工程</b>混凝土的模具，浇前支、达强度后拆</div>
+    </div>
+    <h5 style="color:var(--brick);margin:14px 0 6px">安全与合同</h5>
+    <div class="term-grid">
+      <div class="term"><b>三宝四口五临边</b>安全帽/带/网；楼梯口/电梯井口/预留洞口/通道口；各种没栏杆的边</div>
+      <div class="term"><b>危大工程</b>危险性较大的分部分项工程（深基坑、高支模等），要专项方案+专家论证</div>
+      <div class="term"><b>总包/分包</b>可分包部分工程，但主体结构不能分包、禁止转包</div>
+      <div class="term"><b>签证</b>施工中额外事项的书面确认（拿钱的证据）</div>
+      <div class="term"><b>索赔</b>非自身原因受损时按程序要工期/要钱，28 天时限先脸熟</div>
+      <div class="term"><b>验收体系</b>检验批 → 分项 → 分部 → 单位工程（最小单元到一栋楼）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>扫盲毕业自测（点问题看答案）</h3>
+    <div class="quiz"><div class="q">Q1 地基和基础的区别？</div><div class="a">地基是土（自然物），基础是结构构件（人造物）。</div></div>
+    <div class="quiz"><div class="q">Q2 主体一层楼的施工循环？</div><div class="a">绑钢筋 → 支模板 → 浇混凝土 → 养护 → 拆模 → 上一层。</div></div>
+    <div class="quiz"><div class="q">Q3 五方责任主体？项目经理属于哪方？</div><div class="a">建设、勘察、设计、施工、监理。项目经理属于施工单位。</div></div>
+    <div class="quiz"><div class="q">Q4 C30 的 30 指什么？</div><div class="a">立方体抗压强度标准值 30MPa。</div></div>
+    <div class="quiz"><div class="q">Q5 三宝四口五临边？</div><div class="a">三宝：安全帽/安全带/安全网。四口：楼梯口/电梯井口/预留洞口/通道口。五临边：未设防护的各种临边部位。</div></div>
+    <p class="dim" style="font-size:13px">五题全对 = 扫盲毕业，去开管理第一章。</p>
+  </div>
+
+  <div class="card">
+    <h3>扫盲期免费资源（B 站搜索词）</h3>
+    <p class="mono" style="font-size:13.5px;line-height:2.1">「施工全过程 动画」「房子是怎么建成的」— 看流程<br>「工地识图 入门」「建筑图纸 零基础」— 认图<br>「双代号网络图 入门」— 会会关键路径老朋友</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>二建精讲讲义 · 按 2024 版大纲整理 · 数字细节以官方教材为准</div>
+  <div id="save-tip" style="color:var(--green);min-height:18px"></div>
+  <button id="reset">重置全部打卡</button>
+</footer>
+
+<script>
+/* ── 数据：打卡 id 沿用旧版（进度不丢） ── */
+const SUBJ={m:["m1","m2","m3","m4","m5","m6","m7"],f:["f1","f2","f3","f4","f5","f6","f7","f8"],s:["s1","s2","s3","s4"]};
+const PLAN=[
+ {name:"阶段一 · 扫盲期",time:"现在–09底",tasks:[["p1a","B 站施工科普，高频名词混脸熟"],["p1b","试听 2–3 个老师，选定一个全程跟"],["p1c","《施工管理》精讲第一遍开跑"],["p1d","通过扫盲手册 5 题自测"]]},
+ {name:"阶段二 · 基础轮",time:"10–01月",tasks:[["p2a","10月：管理精讲学完（成本/进度/质量/合同为重）"],["p2b","11月：法规开跑；月底留意 2027 新教材"],["p2c","12月：法规过完；实务开跑（换新版）"],["p2d","1月：实务精讲过完，章节题全刷完"]]},
+ {name:"阶段三 · 强化轮",time:"02–04中",tasks:[["p3a","真题：管理/法规各刷 2 遍+错题二刷"],["p3b","实务案例每周手写 3–4 道"],["p3c","3 月中旬报名+提前学历核验"],["p3d","手写练字练手速"]]},
+ {name:"阶段四 · 冲刺轮",time:"04中–考试",tasks:[["p4a","背高频考点手册（法规集中背诵）"],["p4b","每周 1–2 次整套卷掐时间"],["p4c","模拟一次下午连考两科"],["p4d","考前一周只看错题与手册"]]}];
+const MATS=[
+ ["mt1","教材三本（官方版）","现买 2026 版开学；11–12 月只把《实务》换 2027 新版"],
+ ["mt2","网课一套","B 站机构精讲免费够用，全程跟一个老师"],
+ ["mt3","近 5 年真题（卷子版）","带逐题解析，掐时间模拟用"],
+ ["mt4","刷题 App 一个","搜「二建刷题」装下载量大的，只用免费功能"],
+ ["mt5","高频考点手册","考前 2 个月出新版再买"],
+ ["mt6","考前模拟卷 1–2 套","冲刺期练手感"]];
+
+const KEY="ejian.v1";
+let DB={};try{DB=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){DB={}}
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(DB));
+  localStorage.setItem("ejian.ts",String(Date.now()));
+  const t=document.getElementById("save-tip");t.textContent="已自动保存 "+new Date().toLocaleTimeString();
+  clearTimeout(save._t);save._t=setTimeout(()=>t.textContent="",2500);
+  clearTimeout(save._p);save._p=setTimeout(()=>syncPush(),2500)};
+
+/* 渲染：计划 + 资料 */
+const pbox=document.getElementById("plan-box");
+PLAN.forEach(ph=>{
+  const h=document.createElement("div");
+  h.innerHTML=`<div style="display:flex;gap:10px;align-items:baseline;margin:12px 0 4px"><b style="font-family:var(--serif)">${ph.name}</b><small class="dim mono">${ph.time}</small></div>`;
+  pbox.appendChild(h);
+  ph.tasks.forEach(([id,txt])=>{
+    const l=document.createElement("label");l.className="ck"+(DB[id]?" done":"");
+    l.innerHTML=`<input type="checkbox" data-id="${id}" ${DB[id]?"checked":""}><span class="ck-t" style="flex:1">${txt}</span>`;
+    pbox.appendChild(l)})});
+const mbox=document.getElementById("mat-box");
+MATS.forEach(([id,b,d])=>{
+  const l=document.createElement("label");l.className="ck"+(DB[id]?" done":"");
+  l.innerHTML=`<input type="checkbox" data-id="${id}" ${DB[id]?"checked":""}><span style="flex:1"><span class="ck-t"><b>${b}</b></span><small>${d}</small></span>`;
+  mbox.appendChild(l)});
+
+/* 章末打卡复原 */
+document.querySelectorAll(".lecdone").forEach(cb=>{if(DB[cb.dataset.id])cb.checked=true});
+
+/* 进度汇总 */
+function refresh(){
+  for(const k in SUBJ){
+    const ids=SUBJ[k],d=ids.filter(i=>DB[i]).length,p=Math.round(d/ids.length*100);
+    document.getElementById("bar-"+k).style.width=p+"%";
+    document.getElementById("pct-"+k).textContent=p+"%"}
+  const all=PLAN.flatMap(x=>x.tasks.map(t=>t[0])),d=all.filter(i=>DB[i]).length,p=Math.round(d/all.length*100);
+  document.getElementById("bar-p").style.width=p+"%";
+  document.getElementById("pct-p").textContent=p+"%"}
+
+/* 打卡事件 */
+document.addEventListener("change",e=>{
+  const id=e.target.dataset&&e.target.dataset.id;if(!id)return;
+  DB[id]=e.target.checked;if(!e.target.checked)delete DB[id];
+  const row=e.target.closest(".ck");if(row)row.classList.toggle("done",e.target.checked);
+  save();refresh()});
+
+/* 导航 */
+document.getElementById("nav").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll("main>section").forEach(s=>s.classList.toggle("on",s.id===b.dataset.t));
+  window.scrollTo({top:0})});
+
+/* 自测折叠 */
+document.addEventListener("click",e=>{
+  const q=e.target.closest(".quiz .q");if(q)q.parentElement.classList.toggle("open")});
+
+/* 倒计时 & 阶段 */
+const EXAM=new Date(2027,4,29,9,0,0); /* 2027-05-29 预估，官方通知后修改 */
+const now=new Date();
+const days=Math.max(0,Math.ceil((EXAM-now)/864e5));
+document.getElementById("cd").textContent=days;
+document.getElementById("cd2").textContent=days;
+const PHASES=[
+ [new Date(2026,8,30),"扫盲期","施工科普+管理精讲第一遍"],
+ [new Date(2027,0,31),"基础轮","三科精讲+章节题"],
+ [new Date(2027,3,15),"强化轮","真题+案例手写；3月中报名"],
+ [new Date(2027,4,28),"冲刺轮","背诵+整套卷模拟"],
+ [new Date(2027,5,30),"考试周","轻装上阵"]];
+for(const[d,n,t]of PHASES){if(now<=d){
+  document.getElementById("phase-name").textContent=n;
+  document.getElementById("phase-task").textContent=t;
+  document.getElementById("phase-chip").textContent="当前阶段："+n;break}}
+
+document.getElementById("reset").addEventListener("click",()=>{
+  if(confirm("确定清空全部打卡进度？不可恢复。")){localStorage.removeItem(KEY);location.reload()}});
+
+refresh();
+
+/* ── 云同步（多端，同步码机制） ── */
+const SYNC_API="/api/sync",CODE_KEY="ejian.sync.code",TS_KEY="ejian.ts";
+const isHttp=location.protocol==="http:"||location.protocol==="https:";
+const syncCode=()=>localStorage.getItem(CODE_KEY)||"";
+const localTs=()=>+(localStorage.getItem(TS_KEY)||0);
+function syncStatus(t){const el=document.getElementById("sync-status");if(el)el.textContent=t}
+async function syncPush(){
+  if(!isHttp||!syncCode())return;
+  try{
+    const r=await fetch(SYNC_API,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({code:syncCode(),db:DB,ts:localTs()||Date.now()})});
+    if(!r.ok)throw 0;
+    syncStatus("已同步到云端 "+new Date().toLocaleTimeString());
+  }catch(e){syncStatus("推送失败（网络），下次打卡自动重试")}
+}
+async function syncPull(){
+  if(!isHttp||!syncCode())return;
+  try{
+    const r=await fetch(SYNC_API+"?code="+encodeURIComponent(syncCode()));
+    if(!r.ok)throw 0;
+    const remote=await r.json();
+    if(remote&&remote.ts>localTs()){
+      localStorage.setItem(KEY,JSON.stringify(remote.db||{}));
+      localStorage.setItem(TS_KEY,String(remote.ts));
+      sessionStorage.setItem("ejian.pulled","1");
+      location.reload();
+    }else{syncStatus("已是最新（码尾 "+syncCode().slice(-4)+"）")}
+  }catch(e){syncStatus("拉取失败（网络）")}
+}
+(function initSync(){
+  const inp=document.getElementById("sync-input");if(!inp)return;
+  inp.value=syncCode();
+  if(!isHttp){syncStatus("本地文件模式：部署到线上后此功能生效");}
+  else if(syncCode()){syncStatus("已启用（码尾 "+syncCode().slice(-4)+"），打开自动拉取、打卡后自动推送");}
+  document.getElementById("btn-gen").onclick=()=>{
+    inp.value="EJ"+Math.random().toString(36).slice(2,10)+Math.random().toString(36).slice(2,8).toUpperCase()};
+  document.getElementById("btn-use").onclick=async()=>{
+    const v=inp.value.trim();
+    if(v.length<8){alert("同步码至少 8 位，点「生成新码」可自动生成");return}
+    if(!isHttp){alert("本地文件模式无法同步，请先部署到线上");return}
+    localStorage.setItem(CODE_KEY,v);
+    try{
+      const r=await fetch(SYNC_API+"?code="+encodeURIComponent(v));
+      const remote=r.ok?await r.json():null;
+      if(remote&&remote.db&&Object.keys(remote.db).length){
+        if(confirm("云端已有该同步码的进度。\n确定 = 用云端进度覆盖本设备\n取消 = 用本设备进度覆盖云端")){
+          localStorage.setItem(KEY,JSON.stringify(remote.db));
+          localStorage.setItem(TS_KEY,String(remote.ts||Date.now()));
+          sessionStorage.setItem("ejian.pulled","1");
+          location.reload();return}
+      }
+      localStorage.setItem(TS_KEY,String(Date.now()));
+      await syncPush();
+      syncStatus("已启用（码尾 "+v.slice(-4)+"），本设备进度已上云");
+    }catch(e){syncStatus("已启用，但首次同步失败（网络），打卡后自动重试")}
+  };
+  document.getElementById("btn-sync").onclick=()=>{syncStatus("同步中…");syncPull().then(()=>syncPush())};
+  document.getElementById("btn-off").onclick=()=>{
+    localStorage.removeItem(CODE_KEY);inp.value="";syncStatus("未启用（云端数据保留，重新输码即可恢复）")};
+})();
+(function autoPull(){
+  const pulled=sessionStorage.getItem("ejian.pulled");
+  sessionStorage.removeItem("ejian.pulled");
+  if(pulled){syncStatus("已从云端拉取最新进度");return}
+  syncPull();
+})();
+/* ── PWA ── */
+if(isHttp&&"serviceWorker"in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+</script>
+</body>
+</html>
