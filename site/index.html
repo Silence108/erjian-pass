@@ -194,8 +194,9 @@ footer button{background:none;border:1px solid var(--line);border-radius:6px;col
 .legend .l-key{border-top-color:var(--brick)}
 .legend .l-dash{border-top-style:dashed;border-top-width:2px}
 </style>
+<link rel="stylesheet" href="redesign.css">
 </head>
-<body>
+<body data-theme="atlas">
 
 <header>
   <div class="wrap">
@@ -209,11 +210,11 @@ footer button{background:none;border:1px solid var(--line);border-radius:6px;col
 </header>
 
 <nav id="nav">
-  <button data-t="home" class="on"><span class="nv">首</span>首页</button>
-  <button data-t="mgmt"><span class="nv">管</span>施工管理</button>
-  <button data-t="law"><span class="nv">法</span>法规</button>
-  <button data-t="prac"><span class="nv">实</span>建筑实务</button>
-  <button data-t="base"><span class="nv">盲</span>扫盲</button>
+  <button data-t="home" class="on"><span class="nv" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>首页</button>
+  <button data-t="mgmt"><span class="nv" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>施工管理</button>
+  <button data-t="law"><span class="nv" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 6h14M6 6l-3 6a3 3 0 0 0 6 0zM18 6l-3 6a3 3 0 0 0 6 0zM5 20h14"/></svg></span>法规</button>
+  <button data-t="prac"><span class="nv" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h11a3 3 0 0 1 3 3v15z"/><path d="M4 18h16M8 7h8M8 11h6"/></svg></span>建筑实务</button>
+  <button data-t="base"><span class="nv" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>扫盲</button>
 </nav>
 
 <main class="wrap">
@@ -1826,5 +1827,6 @@ async function syncPull(){
 /* ── PWA ── */
 if(isHttp&&"serviceWorker"in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
 </script>
+<script src="redesign.js"></script>
 </body>
 </html>
